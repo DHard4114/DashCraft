@@ -1,0 +1,20 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      fontFamily: {
+        montserrat: ['Montserrat', 'sans-serif'],
+        cookie: ['Cookie', 'cursive'],
+        roboto: ['Roboto', 'sans-serif'],
+        anton: ['Anton', 'sans-serif'],
+        lato: ['Lato', 'sans-serif'],
+      },
+    },
+  },
+  plugins: [],
+}
+
