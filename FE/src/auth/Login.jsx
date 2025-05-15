@@ -23,19 +23,22 @@ const Login = () => {
         try {
             const response = await axios.post(
                 `${import.meta.env.VITE_API}user/login`,
-                null,
-                { params: { email, password } }
+                { email, password },
+                {
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                }
             );
 
             console.log("LOGIN RESPONSE:", response.data);
 
             if (response.data.success) {
                 localStorage.setItem("token", response.data.token);
-                localStorage.setItem("user_id", response.data.payload.id);
+                localStorage.setItem("user_id", response.data.data._id);
                 localStorage.setItem("email", email);
 
                 alert("Login successful!");
-
                 navigate("/");
             } else {
                 setError(response.data.message || "Login failed");
@@ -46,6 +49,7 @@ const Login = () => {
             setIsLoading(false);
         }
     };
+
 
     return (
         <div className="w-full flex items-center justify-center min-h-screen bg-[#f3f2f3] p-4 font-lato">
@@ -86,8 +90,8 @@ const Login = () => {
                     <button
                         type="submit"
                         disabled={isLoading}
-                        className={`w-full bg-[#141414] text-white font-mono py-2 rounded-sm transition-all ${
-                            isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-900'
+                        className={`w-full border border-[#000000] bg-[#ffffff]  text-black hover:border-black font-mono py-2 rounded-sm transition-all ${
+                            isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#CD83B2]'
                         }`}
                     >
                         {isLoading ? "Loading..." : "Login"}

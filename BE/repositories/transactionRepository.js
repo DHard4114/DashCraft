@@ -11,7 +11,7 @@ async function createTransaction(req, res) {
             return res.status(400).json({ success: false, message: "userId, itemId, and quantity are required in query params" });
         }
     
-        const user = await User.findById(userId);  // Pastikan User didefinisikan
+        const user = await User.findById(userId);
         if (!user) {
             return res.status(400).json({ success: false, message: "User not found" });
         }

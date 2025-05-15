@@ -8,6 +8,12 @@ const userSchema = new mongoose.Schema(
             required: true,
             unique: true,
         },
+        email: {
+            type: String,
+            required: true,
+            unique: true,
+            match: [/^\S+@\S+\.\S+$/, 'Please use a valid email address'],
+        },
         password: {
             type: String,
             required: true,
@@ -27,6 +33,10 @@ userSchema.pre('save', async function (next) {
         next(error);
     }
 });
+
+userSchema.methods.comparePassword = async function (candidatePassword) {
+    return bcrypt.compare(candidatePassword, this.password);
+};
 
 const User = mongoose.model("User", userSchema);
 

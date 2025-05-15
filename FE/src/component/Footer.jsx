@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-4 text-white text-sm font-mono">
 
         <ul className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6 text-center md:text-left">
-          <li>&copy; {new Date().getFullYear()} DyeCraft Products LLC.</li>
+          <li>&copy; {new Date().getFullYear()} DashCraft Products LLC.</li>
           <li>|</li>
           <li>All Rights Reserved A</li>
           <li>|</li>

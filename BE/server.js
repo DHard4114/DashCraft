@@ -6,6 +6,7 @@ const userRoutes = require('./routes/userRoute');
 const itemRoutes = require('./routes/itemRoute');
 const transactionRoutes = require('./routes/transactionRoute');
 const storeRoutes = require('./routes/storeRoute');
+const paymentRoutes = require('./routes/paymentRoute');
 
 const errorHandler = require('./middleware/errorMiddleware');
 const corsMiddleware = require('./middleware/corsMiddleware');
@@ -19,10 +20,11 @@ app.use(corsMiddleware);
 
 connectDB();
 
-app.use("/users", userRoutes);
-app.use("/items", itemRoutes);
-app.use("/stores", storeRoutes);
-app.use("/transactions", transactionRoutes);
+app.use("/user", userRoutes);
+app.use("/item", itemRoutes);
+app.use("/store", storeRoutes);
+app.use("/transaction", transactionRoutes);
+app.use("/payment", paymentRoutes);
 
 app.use(errorHandler);
 

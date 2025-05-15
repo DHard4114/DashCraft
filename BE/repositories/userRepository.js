@@ -1,111 +1,88 @@
-const bcrypt = require('bcrypt');
 const User = require("../models/userModel");
 const Transaction = require("../models/transactionModel");
 
 async function addUser(req, res) {
     try {
-        
-        const { username, password } = req.query;
+        const { username, email, password } = req.body;
 
-        if (!username || !password) {
-            return res.status(400).json({ success: false, message: "username and password are required in query params" });
+        if (!username || !email || !password) {
+            return res.status(400).json({ success: false, message: "username, email, and password are required" });
         }
 
-        const user = new User({ username: username, password: password });
+        const user = new User({ username, email, password });
         await user.save();
 
-        res.status(200).json({ success: true, message: "Successfully Registered User", data: user });
+        res.status(201).json({ success: true, message: "User registered successfully", data: user });
     } catch (err) {
         res.status(400).json({ success: false, message: err.message });
-        console.log(`Error Message: ${err.message}`);
     }
 }
 
 async function login(req, res) {
     try {
+        const { email, password } = req.body;
 
-        const { username, password } = req.query;
-
-        if (!username || !password) {
-            return res.status(400).json({ success: false, message: "username and password are required in query params" });
+        if (!email || !password) {
+            return res.status(400).json({ success: false, message: "username and password are required" });
         }
-        
-        const user = await User.findOne({ username: username });
+
+        const user = await User.findOne({ email });
         if (!user) throw new Error("User not found");
 
-        const isMatch = await bcrypt.compare(password, user.password);
-        if (!isMatch) throw new Error("Invalid Password");
+        const isMatch = await user.comparePassword(password);
+        if (!isMatch) throw new Error("Invalid password");
 
-        res.status(200).json({ success: true, message: "Found user", data: user });
+        res.status(200).json({ success: true, message: "Login successful", data: user });
     } catch (err) {
         res.status(400).json({ success: false, message: err.message });
-        console.log(`Error Message: ${err.message}`);
     }
 }
 
 async function getAllUser(req, res) {
     try {
         const users = await User.find().sort({ updatedAt: -1 });
-        res.status(200).json({
-            success: true,
-            message: "Users retrieved successfully",
-            data: users
-        });
+        res.status(200).json({ success: true, data: users });
     } catch (err) {
         res.status(400).json({ success: false, message: err.message });
-        console.log(`Error Message: ${err.message}`);
     }
 }
 
 async function getUserById(req, res) {
     try {
-        const { userId } = req.params;
-
+        const { userId } = req.body;
         const user = await User.findById(userId);
         if (!user) throw new Error("User not found");
 
-        res.status(200).json({
-            success: true,
-            message: `Found user with id ${userId}`,
-            data: user
-        });
+        res.status(200).json({ success: true, data: user });
     } catch (err) {
         res.status(400).json({ success: false, message: err.message });
-        console.log(`Error Message: ${err.message}`);
     }
 }
 
-
 async function getUserTransactions(req, res) {
     try {
-        const { userId } = req.params;
-        const user = await User.findOne({ _id: userId })
-            .populate({
-                path: "transactions",
-                populate: {
-                    path: "items",
-                    model: "Item"
-                }
-            });
+        const { userId } = req.body;
+        const user = await User.findById(userId).populate({
+            path: "transactions",
+            populate: {
+                path: "items",
+                model: "Item"
+            }
+        });
 
         if (!user) {
             return res.status(404).json({ success: false, message: "User not found" });
         }
 
-        res.status(200).json({
-            success: true,
-            message: "Successfully retrieved transactions from user",
-            data: [user]
-        });
+        res.status(200).json({ success: true, data: user.transactions });
     } catch (err) {
         res.status(400).json({ success: false, message: err.message });
-        console.log(err);
     }
 }
 
 async function deleteUser(req, res) {
     try {
-        const { userId } = req.params;
+        const { userId } = req.body;
 
         const user = await User.findById(userId);
         if (!user) {
@@ -113,13 +90,9 @@ async function deleteUser(req, res) {
         }
 
         await Transaction.deleteMany({ user: userId });
+        await user.deleteOne();
 
-        await user.remove();
-
-        res.status(200).json({
-            success: true,
-            message: `User with id ${userId} has been deleted`
-        });
+        res.status(200).json({ success: true, message: "User deleted successfully" });
     } catch (err) {
         res.status(400).json({ success: false, message: err.message });
     }
@@ -127,25 +100,20 @@ async function deleteUser(req, res) {
 
 async function changePassword(req, res) {
     try {
-        const { userId } = req.params;
-        const { oldPassword, newPassword } = req.body;
+        const { userId, oldPassword, newPassword } = req.body;
 
         const user = await User.findById(userId);
         if (!user) throw new Error("User not found");
 
-        const isMatch = await bcrypt.compare(oldPassword, user.password);
+        const isMatch = await user.comparePassword(oldPassword);
         if (!isMatch) throw new Error("Old password is incorrect");
 
-        // Hash the new password
-        const salt = await bcrypt.genSalt(10);
-        user.password = await bcrypt.hash(newPassword, salt);
-
+        user.password = newPassword;
         await user.save();
 
         res.status(200).json({ success: true, message: "Password updated successfully" });
     } catch (err) {
         res.status(400).json({ success: false, message: err.message });
-        console.log(`Error Message: ${err.message}`);
     }
 }
 

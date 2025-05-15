@@ -11,27 +11,25 @@ const NavBar = () => {
   };
 
   return (
-    <div className="bg-[#ffffff] w-full">
-      <div className="w-full h-4 bg-[#f3f2f3] drop-[0_4px_8px_rgba(0,0,0,0.2)]"></div>
+    <div className="bg-[#ffffff] w-full ">
       <div className="container mx-auto flex items-center justify-between p-4">
 
         {/* Left: Menu */}
-        <div className="flex space-x-6 text-black font-lato text-sm hidden md:flex">
+        <div className="flex space-x-6 text-black font-lato text-sm  md:flex">
           <Link to="/products" className="hover:underline transition-all duration-300 ease-in-out hover:opacity-70">Products</Link>
           <Link to="/craftmanship" className="hover:underline transition-all duration-300 ease-in-out hover:opacity-70"> Our Craftsmanship</Link>
-          <Link to="/project-ideas" className="hover:underline transition-all duration-300 ease-in-out hover:opacity-70">Project Ideas</Link>
         </div>
 
         {/* Center: Logo */}
         <div className="absolute left-1/2 transform -translate-x-1/2">
           <Link to="/" className="">
-            <span className="font-cookie text-6xl font-bold text-[#0a0205]">D</span>
+            <span className="font-cookie text-6xl font-light text-[#0a0205]">D</span>
             <span className="font-cookie text-5xl text-[#000000]">c</span>
           </Link>
         </div>
 
 
-        <div className="flex items-center space-x-6 text-black font-lato text-sm hidden md:flex">
+        <div className="flex items-center space-x-6 text-black font-lato text-sm  md:flex">
           <Link to="/contact-us" className="hover:underline transition-all duration-300 ease-in-out hover:opacity-70">Contact Us</Link>
           <Link to="/faqs" className="hover:underline transition-all duration-300 ease-in-out hover:opacity-70">FAQs</Link>
 
@@ -41,14 +39,14 @@ const NavBar = () => {
 
           <Link
             to="/"
-            className="border border-black px-3 py-1 hover:bg-black hover:text-white hover:opacity-80 transition-all duration-300 ease-in-out rounded-none"
+            className="border border-black px-3 py-1 hover:bg-[#000000] hover:text-white hover:opacity-80 transition-all duration-300 ease-in-out rounded-none"
           >
             Buy Online
           </Link>
 
           <Link
             to="/auth/login"
-            className="hidden md:flex border border-black px-3 py-1 hover:bg-black hover:text-white hover:opacity-80 transition-all duration-300 ease-in-out rounded-none"
+            className="hidden md:flex border border-black px-3 py-1 hover:bg-[#000000] hover:text-white hover:opacity-80 transition-all duration-300 ease-in-out rounded-none"
           >
             Login
           </Link>
@@ -62,17 +60,17 @@ const NavBar = () => {
 
         <div className="md:hidden flex flex-col justify-center items-center left-10 cursor-pointer hover:opacity-80 transition-all duration-300" onClick={toggleMenu}>
           <span
-            className={`block w-6 h-0.5 bg-black my-0.1 transition-transform duration-300 ${
+            className={`block w-6 h-0.5 bg-[#000000] my-0.1 transition-transform duration-300 ${
               menuOpen ? 'rotate-45 translate-y-2' : ''
             }`}
           ></span>
           <span
-            className={`block w-6 h-0.5 bg-black my-1.5 transition-all duration-300 ${
+            className={`block w-6 h-0.5 bg-[#000000] my-1.5 transition-all duration-300 ${
               menuOpen ? 'opacity-0' : ''
             }`}
           ></span>
           <span
-            className={`block w-6 h-0.5 bg-black my-0.1 transition-transform duration-300 ${
+            className={`block w-6 h-0.5 bg-[#000000] my-0.1 transition-transform duration-300 ${
               menuOpen ? '-rotate-45 -translate-y-2' : ''
             }`}
           ></span>
@@ -99,6 +97,7 @@ const NavBar = () => {
           </div>
         </div>
       </div>
+      
     </div>
   );
 };

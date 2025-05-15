@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const Register = () => {
     const [email, setEmail] = useState('');
-    const [name, setName] = useState('');
+    const [username, setName] = useState('');
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState('');
@@ -24,9 +24,14 @@ const Register = () => {
         try {
             const response = await axios.post(
                 `${import.meta.env.VITE_API}user/register`,
-                null,
-                { params: { email, name, password } }
+                { username, email, password },
+                {
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                }
             );
+
 
             console.log("REGISTER RESPONSE:", response.data);
 
@@ -43,6 +48,7 @@ const Register = () => {
         }
     };
 
+
     return (
         <div className="w-full flex items-center justify-center min-h-screen bg-[#f3f2f3] p-4 font-lato">
             <div className="max-w-md w-full bg-white rounded-sm p-6 border border-gray-300">
@@ -50,12 +56,12 @@ const Register = () => {
 
                 <form onSubmit={handleRegister} className="space-y-4">
                     <div>
-                        <label htmlFor="name" className="block text-sm font-mono text-gray-700">Name</label>
+                        <label htmlFor="username" className="block text-sm font-mono text-gray-700">Username</label>
                         <input
-                            id="name"
+                            id="username"
                             type="text"
-                            placeholder="Enter your name"
-                            value={name}
+                            placeholder="Enter your username"
+                            value={username}
                             onChange={(e) => setName(e.target.value)}
                             onKeyDown={handleKeyDown}
                             className="mt-1 block w-full rounded-sm border-gray-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-gray-800 p-2"
@@ -74,6 +80,7 @@ const Register = () => {
                             onKeyDown={handleKeyDown}
                             className="mt-1 block w-full rounded-sm border-gray-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-gray-800 p-2"
                             required
+                            autoComplete="email"
                         />
                     </div>
 
@@ -88,6 +95,7 @@ const Register = () => {
                             onKeyDown={handleKeyDown}
                             className="mt-1 block w-full rounded-sm border-gray-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-gray-800 p-2"
                             required
+                            autocomplete="password"
                         />
                     </div>
 
@@ -96,8 +104,8 @@ const Register = () => {
                     <button
                         type="submit"
                         disabled={isLoading}
-                        className={`w-full bg-[#ffffff] border-2 text-black  font-mono py-2 rounded-sm transition-all ${
-                            isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#27767c] hover:text-white hover:border-[#454646]'
+                        className={`w-full bg-[#000000] border-2 text-white  font-mono py-2 rounded-sm transition-all ${
+                            isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#f5f5f5] hover:text-black hover:border-[#454646]'
                         }`}
                     >
                         {isLoading ? "Loading..." : "Register"}
