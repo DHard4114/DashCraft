@@ -34,8 +34,8 @@ function Contact() {
     };
 
     return (
-        <div className="flex justify-center items-center ">
-            <div className="flex bg-white flex-col lg:flex-row justify-center items-center gap-12 max-w-6xl mx-auto p-6 font-mono text-black">
+        <div className="flex justify-center items-center pt-12">
+            <div className="flex bg-[#fff3f3] flex-row lg:flex-row justify-center items-center gap-12 max-w-6xl mx-auto p-6 font-mono text-black">
             {/* Customer Service Info */}
             <div className="w-full lg:w-1/3 space-y-8 text-center">
                 <h2 className="text-2xl font-bold border-b pb-2 border-black">Customer Service</h2>
@@ -43,7 +43,7 @@ function Contact() {
                 <div className="space-y-4">
                 <div className="flex items-center justify-center gap-3">
                     <Mail size={18} className="text-black" />
-                    <a href="mailto:info@ritdye.com" className=" hover:underline">DashCraft@gmail.com</a>
+                    <a href="mailto:info@ritdye.com" className=" hover:underline">dashcraft@gmail.com</a>
                 </div>
 
                 <div className="flex items-center justify-center gap-3">

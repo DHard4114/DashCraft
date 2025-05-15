@@ -180,11 +180,11 @@ const Home = () => {
                 </div>
             </section>
 
-            <div className='w-full h-2 bg-[#f8e3f2]'></div>
+            <div className='w-full h-2 bg-[#f1efdd]'></div>
 
             {/* Product Grid */}
-            <section className="bg-[#ffeaea] py-16 px-4 md:px-12 lg:px-20">
-                <div className='items-center flex flex-col bg-[#fcd6d6] p-12 '>
+            <section className="bg-[#fffef7] py-16 px-4 md:px-12 lg:px-20">
+                <div className='items-center flex flex-col bg-[#ffe7e7] p-12  '>
                     <h2 className="text-3xl font-mono font-medium mb-10 text-center">
                         Our DIY Collection
                     </h2>
@@ -192,17 +192,17 @@ const Home = () => {
                 </div>
             </section>
 
-            <div className='w-full h-2 bg-[#dae6e7]'></div>
+            <div className='w-full h-2 bg-[#e2e1e2]'></div>
 
             {/*Kelebihan*/}
             <section className='flex flex-row w-full bg-[#e5e9cd] justify-center items-center'>
                 <Kelebihan />
             </section>
 
-            <div className='w-full h-2 bg-[#e7ecda]'></div>
+            <div className='w-full h-2 bg-[#dbdbdb]'></div>
             
             {/* Contact / Footer */}
-            <section className="bg-white py-12 px-6 shadow-inner">
+            <section className="bg-[#fcfdfa] py-12 px-6 shadow-inner">
                 <Contact />
             </section>
         </div>
