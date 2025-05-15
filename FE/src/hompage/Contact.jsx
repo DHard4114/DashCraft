@@ -34,7 +34,7 @@ function Contact() {
     };
 
     return (
-        <div className="flex justify-center items-center min-h-screen">
+        <div className="flex justify-center items-center ">
             <div className="flex bg-white flex-col lg:flex-row justify-center items-center gap-12 max-w-6xl mx-auto p-6 font-mono text-black">
             {/* Customer Service Info */}
             <div className="w-full lg:w-1/3 space-y-8 text-center">

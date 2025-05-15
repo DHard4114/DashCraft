@@ -1,41 +1,21 @@
-
-import React from 'react';
-
-const productCard = ({ card, index }) => {
-    return (
-        <section key={index} className="max-w-[1280px] mx-auto my-10 animate-fadeIn">
-        <div
-            className={`max-w-[1080px] mx-auto flex flex-col md:flex-row items-start md:items-center gap-10 ${
-            index % 2 !== 0 ? 'md:flex-row-reverse' : ''
-            }`}
-        >
-            {/* Gambar */}
-            <a href={card.link} target="_self" className="relative block w-full md:w-1/2 group">
-            <div className="relative w-full pb-[56.25%]">
-                {/* Layer bawah */}
-                <div className="absolute inset-0 bg-sky-100 translate-x-4 translate-y-4"></div>
-
-                {/* Gambar utama */}
-                <div
-                className="absolute inset-0 bg-cover bg-center shadow-lg transition-transform duration-300 group-hover:-translate-y-1 group-hover:-translate-x-1"
-                style={{ backgroundImage: `url(${card.image})` }}
-                ></div>
-            </div>
-            </a>
-
-            {/* Deskripsi */}
-            <div className="flex-1 px-4 md:px-0 font-mono">
-            <div className="mb-4 text-lg font-mono text-black hover:underline transition">
-                <a href={card.link} target="_self">{card.title}</a>
-            </div>
-
-            <div className="text-gray-700 text-base leading-relaxed">
-                <p>{card.description}</p>
-            </div>
-            </div>
+const ProductCard = ({ product }) => (
+    <div className="flex-shrink-0 w-[225px] bg-white rounded-sm shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden group">
+        <div className="relative overflow-hidden">
+            <img
+                src={product.image}
+                alt={product.name}
+                className="w-full h-40 object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         </div>
-        </section>
-    );
-};
+        <div className="p-4 font-mono">
+            <h3 className="text-sm font-light tracking-wide">{product.name}</h3>
+            <p className="text-sm text-gray-500 mt-1">{product.price}</p>
+            <button className="mt-3 text-xs px-4 py-2 border border-gray-200 text-gray-600 rounded-sm hover:bg-gray-50 transition-colors duration-300">
+                View Details
+            </button>
+        </div>
+    </div>
+);
 
-export default productCard;
+export default ProductCard;
