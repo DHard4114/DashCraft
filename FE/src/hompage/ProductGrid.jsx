@@ -26,21 +26,34 @@ const ProductGrid = () => {
             }
             
             const response = await axios.get(`${import.meta.env.VITE_API}item/store/${storeId}`);
-            setProducts(response.data.data);
-            console.log("PRODUCT RESPONSE:", response.data);
+            console.log("Full API Response:", response);
             
-            if (response.data.success) {
-                
-                setProducts(response.data.payload.slice(0, 5));
+            let productData = [];
+            if (response.data && response.data.data) {
+                productData = response.data.data;
+            } else if (response.data && response.data.payload) {
+                productData = response.data.payload;
+            } else if (Array.isArray(response.data)) {
+                productData = response.data;
             } else {
-                setError(response.data.message || "Failed to fetch products");
+                throw new Error("Could not parse product data from response");
             }
+            
+            // Add default image URLs since they're missing from the API
+            const productsWithImages = productData.map(product => ({
+                ...product,
+                // Use a placeholder image or your own default image path
+                imageUrl: product.imageUrl || `/api/placeholder/225/160?text=${encodeURIComponent(product.name || 'Product')}`
+            }));
+            
+            console.log("Products with images:", productsWithImages);
+            setProducts(productsWithImages);
+            
         } catch (err) {
-            setError(err.response?.data?.message || "Failed to fetch data from server");
+            console.error("Error fetching products:", err);
+            setError(err.response?.data?.message || err.message || "Failed to fetch data from server");
         }
     };
-
-   //const totalDots = Math.ceil(products.length / productsPerSlide);
 
     const {
         scrollContainerRef,
@@ -49,15 +62,21 @@ const ProductGrid = () => {
         scrollLeft,
         scrollRight,
         jumpToIndex
-    } = useCarousel(products.length > 0 ? products : [], itemWidth);
+    } = useCarousel(products, itemWidth);
+
+    if (error) {
+        return <div className="text-red-500 text-center p-4">{error}</div>;
+    }
+
+    if (products.length === 0) {
+        return <div className="text-center p-4">Loading products...</div>;
+    }
 
     return (
         <div className="relative w-full max-w-[1200px] mx-auto">
-            {error && <div className="text-[#fc7b7b] text-center mb-4">{error}</div>}
-            <h2 className="text-2xl font-mono font-light mb-6 pb-2 inline-block border-b border-gray-200">
+            <h2 className="text-2xl font-lato  font-light mb-6 pb-2 inline-block border-b border-gray-200">
                 Our Creations
             </h2>
-
             <div className="relative">
                 <ScrollButton direction="left" onClick={scrollLeft} />
                 <ScrollButton direction="right" onClick={scrollRight} />
@@ -73,12 +92,19 @@ const ProductGrid = () => {
                 >
                     <div className="flex space-x-4">
                         {extendedItems.map((product, idx) => (
-                            <ProductCard key={`${product.id}-${idx}`} product={product} />
+                            <ProductCard
+                                key={`${product._id}-${idx}`}
+                                product={product}
+                            />
                         ))}
                     </div>
                 </div>
             </div>
-            <DotIndicators total={extendedItems.length} currentIndex={currentIndex} onClick={jumpToIndex} />
+            <DotIndicators
+                total={products.length}
+                currentIndex={currentIndex}
+                onClick={jumpToIndex}
+            />
         </div>
     );
 };

@@ -70,7 +70,7 @@ async function addItemToStore(req, res) {
 async function getItemsByStore(req, res) {
     try {
         const { storeId } = req.params;
-        const store = await Store.findById(storeId).populate("items", "name price quantity");
+        const store = await Store.findById(storeId).populate("items", "name price quantity imageUrl");
         if (!store) {
             return res.status(404).json({ success: false, message: "Store not found" });
         }
