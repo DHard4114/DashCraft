@@ -1,6 +1,4 @@
-import React from 'react';
-
-const Kelebihan = () => {
+const Advantages = () => {
     const advantages = [
         {
             title: "Premium Materials",
@@ -63,4 +61,4 @@ const Kelebihan = () => {
     );
 };
 
-export default Kelebihan;
+export default Advantages;

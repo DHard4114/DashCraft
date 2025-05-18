@@ -1,8 +1,10 @@
+
+
 const ProductCard = ({ product }) => (
     <div className="flex-shrink-0 w-[225px] bg-white rounded-sm shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden group">
         <div className="relative overflow-hidden">
             <img
-                src={product.image}
+                src={'https://res.cloudinary.com/dhtcpxmxs/image/upload/v1747278266/dashcraft_items/p6g4q80nrrrkvrr24ne6.jpg'}
                 alt={product.name}
                 className="w-full h-40 object-cover transition-transform duration-700 group-hover:scale-105"
             />

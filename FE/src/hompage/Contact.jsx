@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { Mail, Phone, Clock, Twitter, Instagram, Facebook } from 'lucide-react';
-import {FaPinterest} from 'react-icons/fa';
 
-function Contact() {
+export default function Contact() {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -34,8 +33,9 @@ function Contact() {
     };
 
     return (
-        <div className="flex justify-center items-center pt-12">
-            <div className="flex bg-[#fff3f3] flex-row lg:flex-row justify-center items-center gap-12 max-w-6xl mx-auto p-6 font-mono text-black">
+        <div className="flex justify-center items-center">
+        <div className="w-full max-w-full px-12 md:mx-12 lg:mx-auto">
+            <div className="flex flex-col lg:flex-row justify-center items-center gap-12 bg-[#fff3f3] p-6 font-mono text-black">
             {/* Customer Service Info */}
             <div className="w-full lg:w-1/3 space-y-8 text-center">
                 <h2 className="text-2xl font-bold border-b pb-2 border-black">Customer Service</h2>
@@ -43,7 +43,7 @@ function Contact() {
                 <div className="space-y-4">
                 <div className="flex items-center justify-center gap-3">
                     <Mail size={18} className="text-black" />
-                    <a href="mailto:info@ritdye.com" className=" hover:underline">dashcraft@gmail.com</a>
+                    <a href="#" className="hover:underline">dashcraft@gmail.com</a>
                 </div>
 
                 <div className="flex items-center justify-center gap-3">
@@ -68,22 +68,25 @@ function Contact() {
                 <div className="space-y-3">
                     <div className="flex items-center justify-center gap-3">
                     <Twitter size={18} className="text-black" />
-                    <a href="#" className="hover:underline ">Twitter</a>
+                    <a href="#" className="hover:underline">Twitter</a>
                     </div>
 
                     <div className="flex items-center justify-center gap-3">
                     <Instagram size={18} className="text-black" />
-                    <a href="#" className="hover:underline ">Instagram</a>
+                    <a href="#" className="hover:underline">Instagram</a>
                     </div>
 
                     <div className="flex items-center justify-center gap-3">
-                    <FaPinterest size={18} className="text-black" />
-                    <a href="#" className="hover:underline ">Pinterest</a>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" xmlns="http://www.w3.org/2000/svg" className="text-black">
+                        <path d="M12 2C6.477 2 2 6.477 2 12C2 17.523 6.477 22 12 22C17.523 22 22 17.523 22 12C22 6.477 17.523 2 12 2Z" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M12.5 8C11 6.5 8.5 7 7.5 8.5C6.5 10 7 12 8.5 13L12 16.5L15.5 13C17 12 17.5 10 16.5 8.5C15.5 7 13 6.5 11.5 8L12 8.5L12.5 8Z" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                    <a href="#" className="hover:underline">Pinterest</a>
                     </div>
 
                     <div className="flex items-center justify-center gap-3">
                     <Facebook size={18} className="text-black" />
-                    <a href="#" className="hover:underline ">Facebook</a>
+                    <a href="#" className="hover:underline">Facebook</a>
                     </div>
                 </div>
                 </div>
@@ -91,77 +94,80 @@ function Contact() {
 
             {/* Contact Form */}
             <div className="w-full lg:w-2/3">
-                <h2 className="text-2xl font-bold border-b pb-2 mb-6 border-black text-center">By Email</h2>
+                <h2 className="text-2xl font-bold border-b pb-2 mb-6 border-black text-center">
+                By Email
+                </h2>
 
-                <form onSubmit={handleSubmit} className="space-y-5">
-                <div>
+                <div className="space-y-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
                     <label htmlFor="name" className="block mb-1">
-                    Name <span className="text-pink-500">*</span>
+                        Name <span className="text-pink-500">*</span>
                     </label>
                     <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full border border-black p-2 rounded-sm"
-                    required
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        className="w-full border border-black p-2 rounded-sm"
                     />
-                </div>
+                    </div>
 
-                <div>
+                    <div>
                     <label htmlFor="email" className="block mb-1">
-                    Email <span className="text-pink-500">*</span>
+                        Email <span className="text-pink-500">*</span>
                     </label>
                     <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full border border-black p-2 rounded-sm"
-                    required
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        className="w-full border border-black p-2 rounded-sm"
                     />
+                    </div>
                 </div>
 
-                <div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
                     <label htmlFor="reason" className="block mb-1">
-                    Reason for Email <span className="text-pink-500">*</span>
+                        Reason for Email <span className="text-pink-500">*</span>
                     </label>
                     <select
-                    id="reason"
-                    name="reason"
-                    value={formData.reason}
-                    onChange={handleChange}
-                    className="w-full border border-black p-2 rounded-sm bg-white"
-                    required
+                        id="reason"
+                        name="reason"
+                        value={formData.reason}
+                        onChange={handleChange}
+                        className="w-full border border-black p-2 rounded-sm bg-white"
                     >
-                    <option value="">Please select one.</option>
-                    <option value="general">General Inquiry</option>
-                    <option value="product">Product Question</option>
-                    <option value="support">Customer Support</option>
-                    <option value="feedback">Feedback</option>
+                        <option value="">Please select one.</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="product">Product Question</option>
+                        <option value="support">Customer Support</option>
+                        <option value="feedback">Feedback</option>
                     </select>
-                </div>
+                    </div>
 
-                <div>
+                    <div>
                     <label htmlFor="material" className="block mb-1">
-                    Fabric/Material (If Applicable)
+                        Fabric/Material (If Applicable)
                     </label>
                     <select
-                    id="material"
-                    name="material"
-                    value={formData.material}
-                    onChange={handleChange}
-                    className="w-full border border-black p-2 rounded-sm bg-white"
+                        id="material"
+                        name="material"
+                        value={formData.material}
+                        onChange={handleChange}
+                        className="w-full border border-black p-2 rounded-sm bg-white"
                     >
-                    <option value="">Please select one.</option>
-                    <option value="cotton">Cotton</option>
-                    <option value="wool">Wool</option>
-                    <option value="silk">Silk</option>
-                    <option value="synthetic">Synthetic</option>
-                    <option value="other">Other</option>
+                        <option value="">Please select one.</option>
+                        <option value="cotton">Cotton</option>
+                        <option value="wool">Wool</option>
+                        <option value="silk">Silk</option>
+                        <option value="synthetic">Synthetic</option>
+                        <option value="other">Other</option>
                     </select>
+                    </div>
                 </div>
 
                 <div>
@@ -188,23 +194,21 @@ function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     className="w-full border border-black p-2 rounded-sm h-32"
-                    required
                     ></textarea>
                 </div>
 
                 <div className="flex justify-center">
                     <button
-                    type="submit"
-                    className=" text-black hover:bg-[#CD83B2] px-6 py-2 border border-black rounded-sm bg-[#ffffff] transition-colors"
+                    onClick={handleSubmit}
+                    className="text-black hover:bg-[#CD83B2] px-6 py-2 border border-black rounded-sm bg-[#ffffff] transition-colors"
                     >
                     Submit
                     </button>
                 </div>
-                </form>
+                </div>
             </div>
             </div>
         </div>
+        </div>
     );
 }
-
-export default Contact;

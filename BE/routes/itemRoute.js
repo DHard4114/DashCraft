@@ -8,7 +8,7 @@ router.get("/", itemRepo.getAllItems);
 
 router.post("/addItemToStore", upload.single("image"), itemRepo.addItemToStore);
 
-router.get("/:storeId/items", itemRepo.getItemsByStore);
+router.get("/store/:storeId", itemRepo.getItemsByStore);
 
 router.get("/:itemId", itemRepo.getItemById);
 

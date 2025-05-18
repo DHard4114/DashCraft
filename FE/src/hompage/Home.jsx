@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ProductGrid from './ProductGrid';
 import Contact from './Contact';
-import Kelebihan from '../products/Kelebihan';
+import Advantages from '../products/Advantages';
+import Payment from './paymentMethod';
+
 
 const BrandValueSlider = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -126,9 +128,9 @@ const ImageGallery = () => {
                             }`}
                         >
                             <img
-                                src={src} 
+                                src={src}
                                 className="w-full h-full object-cover"
-                                alt={`Handcrafted product ${idx + 1}`} 
+                                alt={`Handcrafted product ${idx + 1}`}
                             />
                         </div>
                     ))}
@@ -196,14 +198,20 @@ const Home = () => {
 
             {/*Kelebihan*/}
             <section className='flex flex-row w-full bg-[#e5e9cd] justify-center items-center'>
-                <Kelebihan />
+                <Advantages />
             </section>
 
             <div className='w-full h-2 bg-[#dbdbdb]'></div>
             
             {/* Contact / Footer */}
-            <section className="bg-[#fcfdfa] py-12 px-6 shadow-inner">
+            <section className="w-full h-auto bg-[#fcfdfa] pt-12 shadow-inner">
                 <Contact />
+            </section>
+
+            <div className='w-full h-2 bg-[#dbdbdb]'></div>
+            
+            <section className='w-full bg-[#fefff9] justify-center items-center'>
+            <Payment />
             </section>
         </div>
     );

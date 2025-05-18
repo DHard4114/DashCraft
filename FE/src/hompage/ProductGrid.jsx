@@ -1,24 +1,47 @@
 import React from 'react';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 import { useCarousel } from '../hooks/useCarousel';
 import ProductCard from '../component/productCard';
 import ScrollButton from '../component/scrollButton';
 import DotIndicators from '../component/DotIndicators';
 
-const dummyProducts = [
-    { id: 1, name: "Macrame Wall Hanging", image: "/api/placeholder/250/180", price: "$25" },
-    { id: 2, name: "Wooden Candle Holder", image: "/api/placeholder/250/180", price: "$15" },
-    { id: 3, name: "Handmade Clay Pot", image: "/api/placeholder/250/180", price: "$30" },
-    { id: 4, name: "Vintage Key Holder", image: "/api/placeholder/250/180", price: "$18" },
-    { id: 5, name: "Painted Flower Vase", image: "/api/placeholder/250/180", price: "$22" },
-    { id: 6, name: "DIY Beaded Coaster", image: "/api/placeholder/250/180", price: "$12" },
-    { id: 7, name: "Mini Plant Shelf", image: "/api/placeholder/250/180", price: "$28" },
-    { id: 8, name: "Knitted Pot Cover", image: "/api/placeholder/250/180", price: "$14" },
-    { id: 9, name: "Custom Wall Art", image: "/api/placeholder/250/180", price: "$35" },
-    { id: 10, name: "Hand-Painted Tray", image: "/api/placeholder/250/180", price: "$20" },
-];
-
 const ProductGrid = () => {
+    const [products, setProducts] = useState([]);
+    const [error, setError] = useState('');
     const itemWidth = 240;
+
+    useEffect(() => {
+        localStorage.setItem('store_id', '681a222b4d183cafc20f9e59');
+        fetchProductsByStore();
+    }, []);
+    
+    const fetchProductsByStore = async () => {
+        setError('');
+        try {
+            const storeId = localStorage.getItem("store_id");
+            if (!storeId) {
+                setError("Store ID not found in localStorage");
+                return;
+            }
+            
+            const response = await axios.get(`${import.meta.env.VITE_API}item/store/${storeId}`);
+            setProducts(response.data.data);
+            console.log("PRODUCT RESPONSE:", response.data);
+            
+            if (response.data.success) {
+                
+                setProducts(response.data.payload.slice(0, 5));
+            } else {
+                setError(response.data.message || "Failed to fetch products");
+            }
+        } catch (err) {
+            setError(err.response?.data?.message || "Failed to fetch data from server");
+        }
+    };
+
+   //const totalDots = Math.ceil(products.length / productsPerSlide);
+
     const {
         scrollContainerRef,
         currentIndex,
@@ -26,10 +49,11 @@ const ProductGrid = () => {
         scrollLeft,
         scrollRight,
         jumpToIndex
-    } = useCarousel(dummyProducts, itemWidth);
+    } = useCarousel(products.length > 0 ? products : [], itemWidth);
 
     return (
         <div className="relative w-full max-w-[1200px] mx-auto">
+            {error && <div className="text-[#fc7b7b] text-center mb-4">{error}</div>}
             <h2 className="text-2xl font-mono font-light mb-6 pb-2 inline-block border-b border-gray-200">
                 Our Creations
             </h2>
@@ -54,8 +78,7 @@ const ProductGrid = () => {
                     </div>
                 </div>
             </div>
-
-            <DotIndicators total={dummyProducts.length} currentIndex={currentIndex} onClick={jumpToIndex} />
+            <DotIndicators total={extendedItems.length} currentIndex={currentIndex} onClick={jumpToIndex} />
         </div>
     );
 };
