@@ -39,10 +39,8 @@ const ProductGrid = () => {
                 throw new Error("Could not parse product data from response");
             }
             
-            // Add default image URLs since they're missing from the API
             const productsWithImages = productData.map(product => ({
                 ...product,
-                // Use a placeholder image or your own default image path
                 imageUrl: product.imageUrl || `/api/placeholder/225/160?text=${encodeURIComponent(product.name || 'Product')}`
             }));
             

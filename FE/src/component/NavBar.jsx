@@ -39,7 +39,7 @@ const NavBar = () => {
             <Search size={24} className="text-black" />
           </button>
 
-          <Link to="/" className="border border-black px-3 py-1 hover:bg-[#000000] hover:text-white hover:opacity-80 transition-all duration-300 ease-in-out rounded-none">Buy Online</Link>
+          <Link to="/buy-online" className="border border-black px-3 py-1 hover:bg-[#000000] hover:text-white hover:opacity-80 transition-all duration-300 ease-in-out rounded-none">Buy Online</Link>
 
           <Link to="/auth/login" className="border border-black px-3 py-1 hover:bg-[#000000] hover:text-white hover:opacity-80 transition-all duration-300 ease-in-out rounded-none">Login</Link>
         </div>

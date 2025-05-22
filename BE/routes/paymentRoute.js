@@ -6,12 +6,12 @@ router.get('/', paymentRepo.getAllPayments);
 
 router.get('/:paymentId', paymentRepo.getPaymentById);
 
-router.post('/:paymentId', paymentRepo.addPaymentToStore);
+router.post('/', paymentRepo.addPayment);
 
-router.get('/store/:storeId', paymentRepo.getPaymentsByStore);
+router.get('/customer/:customerId', paymentRepo.getPaymentsByCustomer);
 
 router.put('/:paymentId', paymentRepo.updatePayment);
 
-router.delete('/:deleteId', paymentRepo.deletePayment);
+router.delete('/:paymentId', paymentRepo.deletePayment);
 
 module.exports = router;
