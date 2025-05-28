@@ -2,14 +2,21 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   X, Search, Droplet, FileText, HelpCircle, Mail,
-  MapPin, PenTool, BookOpen, Layers, User
+  MapPin, PenTool, BookOpen, Layers, User, ShoppingCart
 } from 'lucide-react';
+import { useAuth } from '../contexts/AuthContext';
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const auth = useAuth();
+  const isAuthenticated = auth?.isAuthenticated;
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  const handleLogout = () => {
+    auth?.logout();
   };
 
   return (
@@ -39,16 +46,44 @@ const NavBar = () => {
             <Search size={24} className="text-black" />
           </button>
 
-          <Link to="/buy-online" className="border border-black px-3 py-1 hover:bg-[#000000] hover:text-white hover:opacity-80 transition-all duration-300 ease-in-out rounded-none">Buy Online</Link>
+          {isAuthenticated && (
+            <Link to="/cart" className="border border-black px-3 py-1 hover:bg-[#000000] hover:text-white hover:opacity-80 transition-all duration-300 ease-in-out rounded-none">
+              <ShoppingCart size={18} />
+            </Link>
+          )}
 
-          <Link to="/auth/login" className="border border-black px-3 py-1 hover:bg-[#000000] hover:text-white hover:opacity-80 transition-all duration-300 ease-in-out rounded-none">Login</Link>
+          <Link to="/buy-online" className="border border-black px-3 py-1 hover:bg-[#000000] hover:text-white hover:opacity-80 transition-all duration-300 ease-in-out rounded-none flex items-center gap-2">
+            Buy Online
+          </Link>
+
+          {!isAuthenticated ? (
+            <Link to="/auth/login" className="border border-black px-3 py-1 hover:bg-[#000000] hover:text-white hover:opacity-80 transition-all duration-300 ease-in-out rounded-none">
+              Login
+            </Link>
+          ) : (
+            <button
+              onClick={handleLogout}
+              className="border border-black px-3 py-1 hover:bg-[#000000] hover:text-white hover:opacity-80 transition-all duration-300 ease-in-out rounded-none"
+            >
+              Logout
+            </button>
+          )}
         </div>
 
         {/* Mobile: Login Button */}
-        <div className="lg:hidden absolute right-10 ">
-          <Link to="/auth/login" className="flex items-center justify-center font-mono transition-all duration-300 ease-in-out hover:opacity-70">
-            <User size={24} className="text-black" />Login
-          </Link>
+        <div className="lg:hidden absolute right-10">
+          {!isAuthenticated ? (
+            <Link to="/auth/login" className="flex items-center justify-center font-mono transition-all duration-300 ease-in-out hover:opacity-70">
+              <User size={24} className="text-black" />Login
+            </Link>
+          ) : (
+            <button
+              onClick={handleLogout}
+              className="flex items-center justify-center font-mono transition-all duration-300 ease-in-out hover:opacity-70"
+            >
+              <User size={24} className="text-black" />Logout
+            </button>
+          )}
         </div>
 
         {/* Hamburger Menu */}
@@ -70,7 +105,7 @@ const NavBar = () => {
             </div>
             <div className="flex flex-col space-y-6">
               <NavItem icon={<Mail size={20} />} label="Contact" to="/contact-us" />
-              <NavItem icon={<MapPin size={20} />} label="Buy Online" to="/" />
+              <NavItem icon={<ShoppingCart size={20} />} label="Buy Online" to="/buy-online" />
             </div>
           </div>
         </div>

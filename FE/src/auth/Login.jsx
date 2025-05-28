@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useAuth } from '../contexts/AuthContext';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -8,12 +9,7 @@ const Login = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState('');
     const navigate = useNavigate();
-
-    const handleKeyDown = (e) => {
-        if (e.key === 'Enter') {
-            handleSignIn(e);
-        }
-    };
+    const { login } = useAuth();
 
     const handleSignIn = async (e) => {
         e.preventDefault();
@@ -31,14 +27,9 @@ const Login = () => {
                 }
             );
 
-            console.log("LOGIN RESPONSE:", response.data);
-
             if (response.data.success) {
-                localStorage.setItem("token", response.data.token);
-                localStorage.setItem("user_id", response.data.data._id);
-                localStorage.setItem("email", email);
-
-                alert("Login successful!");
+                const { token, data } = response.data;
+                login(data, token);
                 navigate("/");
             } else {
                 setError(response.data.message || "Login failed");
@@ -50,10 +41,9 @@ const Login = () => {
         }
     };
 
-
     return (
         <div className="w-full flex items-center justify-center min-h-screen bg-[#f3f2f3] p-4 font-lato">
-            <div className="max-w-md w-full bg-white rounded-sm  p-6 border border-gray-300">
+            <div className="max-w-md w-full bg-white rounded-sm p-6 border border-gray-300">
                 <h2 className="text-2xl font-mono text-gray-800 text-center mb-4 tracking-wide">Login</h2>
 
                 <form onSubmit={handleSignIn} className="space-y-4">
@@ -65,7 +55,6 @@ const Login = () => {
                             placeholder="Enter your email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            onKeyDown={handleKeyDown}
                             className="mt-1 block w-full rounded-sm border-gray-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-gray-800 p-2"
                             required
                         />
@@ -79,9 +68,9 @@ const Login = () => {
                             placeholder="Enter your password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            onKeyDown={handleKeyDown}
                             className="mt-1 block w-full rounded-sm border-gray-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-gray-800 p-2"
                             required
+                            minLength="8"
                         />
                     </div>
 
@@ -90,7 +79,7 @@ const Login = () => {
                     <button
                         type="submit"
                         disabled={isLoading}
-                        className={`w-full border border-[#000000] bg-[#ffffff]  text-black hover:border-black font-mono py-2 rounded-sm transition-all ${
+                        className={`w-full border border-[#000000] bg-[#ffffff] text-black hover:border-black font-mono py-2 rounded-sm transition-all ${
                             isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#CD83B2]'
                         }`}
                     >

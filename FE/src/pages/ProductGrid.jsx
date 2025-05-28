@@ -2,9 +2,9 @@ import React from 'react';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useCarousel } from '../hooks/useCarousel';
-import ProductCard from '../component/productCard';
-import ScrollButton from '../component/scrollButton';
-import DotIndicators from '../component/DotIndicators';
+import ProductCard from '../components/productCard';
+import ScrollButton from '../components/scrollButton';
+import DotIndicators from '../components/DotIndicators';
 
 const ProductGrid = () => {
     const [products, setProducts] = useState([]);

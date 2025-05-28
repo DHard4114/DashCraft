@@ -28,7 +28,7 @@ const ImageGallery = () => {
         );
         
         return () => resetTimeout();
-    }, [currentIndex]);
+    }, [currentIndex, images.length]);
     
     return (
         <div className="w-full h-full bg-white flex flex-col justify-between relative overflow-hidden">

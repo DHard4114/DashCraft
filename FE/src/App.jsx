@@ -1,31 +1,48 @@
-import { Routes, Route } from "react-router-dom";
-import Home from './hompage/Home'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
+import Home from './pages/Home';
 import Login from "./auth/Login";
-import About from "./hompage/About";
+import About from "./pages/About";
 import Register from "./auth/Register";
-import Contact from "./hompage/Contact";
+import Contact from "./pages/Contact";
 import Materials from "./products/material/Material";
 import AuthModal from "./auth/AuthModal";
-import BuyOnline from "./hompage/BuyOnline";
+import BuyOnline from "./pages/BuyOnline";
+import CartPage from "./pages/CartPage";
+import CheckoutPage from "./pages/CheckoutPage";
+import PaymentPage from "./pages/PaymentPage";
+import OrderConfirmation from "./pages/OrderConfirmation";
+import NavBar from './components/NavBar';
+import Layout from './components/Layout';
 
-function App() {
+const App = () => {
   return (
-    <>
-    <div className="w-full min-h-screen bg-[#f3f2f3] z-50">
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/auth/login" element={<Login />} />
-        <Route path="/auth/register" element={<Register />} />
-        <Route path="/cart" element= {<Contact />} />
-        <Route path="/contact-us" element= {<Contact />} />
-        <Route path="/products/materials" element={<Materials />} />
-        <Route path="/authmodal" element= {<AuthModal />} />
-        <Route path="/buy-online" element={<BuyOnline />} />
-      </Routes>
-    </div>
-    </>
-  )
-}
+    <AuthProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            {/* Public Routes */}
+            <Route index element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact-us" element={<Contact />} />
+            <Route path="/buy-online" element={<BuyOnline />} />
+            <Route path="/products/materials" element={<Materials />} />
+            <Route path="/auth/login" element={<Login />} />
+            <Route path="/auth/register" element={<Register />} />
 
-export default App
+            {/* Protected Routes */}
+            <Route element={<ProtectedRoute />}>
+              <Route path="/cart" element={<CartPage />} />
+              <Route path="/checkout" element={<CheckoutPage />} />
+              <Route path="/payment" element={<PaymentPage />} />
+              <Route path="/order-confirmation" element={<OrderConfirmation />} />
+            </Route>
+          </Route>
+        </Routes>
+      </Router>
+    </AuthProvider>
+  );
+};
+
+export default App;

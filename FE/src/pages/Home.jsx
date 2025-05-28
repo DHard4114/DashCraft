@@ -1,5 +1,5 @@
-import ImageGallery from '../products/ImageGallery';
-import BrandValueSlider from '../products/BrandValueSlider';
+import ImageGallery from '../components/ImageGallery';
+import BrandValueSlider from '../components/BrandValueSlider';
 import ProductGrid from './ProductGrid';
 import Advantages from './Advantages';
 import Payment from './paymentMethod';

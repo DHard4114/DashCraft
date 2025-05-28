@@ -1,155 +1,117 @@
-const User = require("../models/userModel");
-const Transaction = require("../models/transactionModel");
+const User = require('../models/userModel');
 
-async function addUser(req, res) {
-    try {
-        const { username, email, password } = req.body;
-
-        if (!username || !email || !password) {
-            return res.status(400).json({ success: false, message: "username, email, and password are required" });
+class UserRepository {
+    // Create user
+    async create(userData) {
+        try {
+            const user = new User(userData);
+            const savedUser = await user.save();
+            return { success: true, data: savedUser };
+        } catch (err) {
+            console.error('Error creating user:', err);
+            return { success: false, message: err.message };
         }
-
-        const user = new User({ username, email, password });
-        await user.save();
-
-        res.status(201).json({ success: true, message: "User registered successfully", data: user });
-    } catch (err) {
-        res.status(400).json({ success: false, message: err.message });
     }
-}
 
-async function login(req, res) {
-    try {
-        const { email, password } = req.body;
-
-        if (!email || !password) {
-            return res.status(400).json({ success: false, message: "username and password are required" });
+    // Get all users
+    async getAll(filters = {}) {
+        try {
+            const users = await User.find(filters);
+            return { success: true, data: users };
+        } catch (err) {
+            console.error('Error getting all users:', err);
+            return { success: false, message: err.message };
         }
-
-        const user = await User.findOne({ email });
-        if (!user) throw new Error("User not found");
-
-        const isMatch = await user.comparePassword(password);
-        if (!isMatch) throw new Error("Invalid password");
-
-        res.status(200).json({ success: true, message: "Login successful", data: user });
-    } catch (err) {
-        res.status(400).json({ success: false, message: err.message });
     }
-}
 
-async function getAllUser(req, res) {
-    try {
-        const users = await User.find().sort({ updatedAt: -1 });
-        res.status(200).json({ success: true, data: users });
-    } catch (err) {
-        res.status(400).json({ success: false, message: err.message });
-    }
-}
-
-async function getUserById(req, res) {
-    try {
-        const { userId } = req.body;
-        const user = await User.findById(userId);
-        if (!user) throw new Error("User not found");
-
-        res.status(200).json({ success: true, data: user });
-    } catch (err) {
-        res.status(400).json({ success: false, message: err.message });
-    }
-}
-
-async function getUserTransactions(req, res) {
-    try {
-        const { userId } = req.body;
-        const user = await User.findById(userId).populate({
-            path: "transactions",
-            populate: {
-                path: "items",
-                model: "Item"
+    // Get user by ID
+    async getById(id) {
+        try {
+            const user = await User.findById(id);
+            if (!user) {
+                return { success: false, message: 'User not found' };
             }
-        });
-
-        if (!user) {
-            return res.status(404).json({ success: false, message: "User not found" });
+            return { success: true, data: user };
+        } catch (err) {
+            console.error('Error getting user by ID:', err);
+            return { success: false, message: err.message };
         }
+    }
 
-        res.status(200).json({ success: true, data: user.transactions });
-    } catch (err) {
-        res.status(400).json({ success: false, message: err.message });
+    // Get user by email
+    async getByEmail(email) {
+        try {
+            const user = await User.findOne({ email }).select('+password');
+            if (!user) {
+                return { success: false, message: 'User not found' };
+            }
+            return { success: true, data: user };
+        } catch (err) {
+            console.error('Error getting user by email:', err);
+            return { success: false, message: err.message };
+        }
+    }
+
+    // Update user
+    async update(id, updateData) {
+        try {
+            const user = await User.findByIdAndUpdate(
+                id,
+                updateData,
+                { new: true, runValidators: true }
+            );
+            if (!user) {
+                return { success: false, message: 'User not found' };
+            }
+            return { success: true, data: user };
+        } catch (err) {
+            console.error('Error updating user:', err);
+            return { success: false, message: err.message };
+        }
+    }
+
+    // Delete user
+    async delete(id) {
+        try {
+            const user = await User.findByIdAndDelete(id);
+            if (!user) {
+                return { success: false, message: 'User not found' };
+            }
+            return { success: true, data: user };
+        } catch (err) {
+            console.error('Error deleting user:', err);
+            return { success: false, message: err.message };
+        }
+    }
+
+    // Get users with pagination
+    async getPaginated(page = 1, limit = 10, filters = {}) {
+        try {
+            const skip = (page - 1) * limit;
+            const users = await User.find(filters)
+                .skip(skip)
+                .limit(limit)
+                .sort({ createdAt: -1 });
+            
+            const total = await User.countDocuments(filters);
+            
+            return {
+                success: true,
+                data: {
+                    users,
+                    pagination: {
+                        currentPage: page,
+                        totalPages: Math.ceil(total / limit),
+                        totalItems: total,
+                        itemsPerPage: limit
+                    }
+                }
+            };
+        } catch (err) {
+            console.error('Error getting paginated users:', err);
+            return { success: false, message: err.message };
+        }
     }
 }
 
-async function deleteUser(req, res) {
-    try {
-        const { userId } = req.body;
-
-        const user = await User.findById(userId);
-        if (!user) {
-            return res.status(404).json({ success: false, message: "User not found" });
-        }
-
-        await Transaction.deleteMany({ user: userId });
-        await user.deleteOne();
-
-        res.status(200).json({ success: true, message: "User deleted successfully" });
-    } catch (err) {
-        res.status(400).json({ success: false, message: err.message });
-    }
-}
-
-async function changePassword(req, res) {
-    try {
-        const { userId, oldPassword, newPassword } = req.body;
-
-        const user = await User.findById(userId);
-        if (!user) throw new Error("User not found");
-
-        const isMatch = await user.comparePassword(oldPassword);
-        if (!isMatch) throw new Error("Old password is incorrect");
-
-        user.password = newPassword;
-        await user.save();
-
-        res.status(200).json({ success: true, message: "Password updated successfully" });
-    } catch (err) {
-        res.status(400).json({ success: false, message: err.message });
-    }
-}
-
-async function topUp(req, res) {
-    try {
-        const { userId, amount } = req.body;
-
-        if (!userId || typeof amount !== 'number' || amount <= 0) {
-            return res.status(400).json({ success: false, message: "Valid userId and positive amount are required" });
-        }
-
-        const user = await User.findById(userId);
-        if (!user) {
-            return res.status(404).json({ success: false, message: "User not found" });
-        }
-
-        user.balance += amount;
-        await user.save();
-
-        res.status(200).json({
-            success: true,
-            message: `Top up successful. New balance: ${user.balance}`,
-            data: { balance: user.balance }
-        });
-    } catch (err) {
-        res.status(500).json({ success: false, message: err.message });
-    }
-}
-
-
-module.exports = {
-    addUser,
-    login,
-    getAllUser,
-    getUserById,
-    getUserTransactions,
-    deleteUser,
-    changePassword
-};
+module.exports = new UserRepository();
