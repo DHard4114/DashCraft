@@ -6,6 +6,9 @@
 
 DashCraft adalah toko online yang menghadirkan beragam kerajinan tangan unik dan berkualitas tinggi. Kami menggabungkan kreativitas tradisional dengan sentuhan modern untuk menyediakan produk-produk handcrafted yang istimewa, mulai dari dekorasi rumah, aksesori fashion, hingga hadiah personal yang penuh makna. DashCraft berkomitmen mendukung para pengrajin lokal dengan memberikan platform bagi karya mereka agar dapat dinikmati oleh pelanggan di seluruh dunia. Dengan layanan yang mudah, aman, dan cepat, DashCraft menjadi destinasi utama bagi para pencinta kerajinan tangan yang menginginkan produk autentik dan bernilai seni tinggi.
 
+## 🛠️Tech Stack
+
+![image](https://hackmd.io/_uploads/H1lv0v4Mge.png)![image](https://hackmd.io/_uploads/S1WjRP4fee.png)![image](https://hackmd.io/_uploads/BJpsRPEfxg.png)![image](https://hackmd.io/_uploads/rywpCwEMgx.png)![image](https://hackmd.io/_uploads/Bkn6CwVGle.png)![image](https://hackmd.io/_uploads/SyuRRDNfgl.png)![image](https://hackmd.io/_uploads/HJk1yu4fxg.png)![image](https://hackmd.io/_uploads/HytyJOEzlg.png)![image](https://hackmd.io/_uploads/HkNLJOEMlg.png)![image](https://hackmd.io/_uploads/HJjwJOVMlg.png)
 
 ## Installation Guide
 
@@ -75,6 +78,7 @@ BE/
 ```
 cd FE
 npm install
+npm install lucide-react
 npm run dev
 ```
 ![image](https://hackmd.io/_uploads/SkMArvEGll.png)
