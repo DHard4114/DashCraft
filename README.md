@@ -57,6 +57,7 @@
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Lucide React](https://img.shields.io/badge/Lucide-React-FF6B6B?style=for-the-badge&logo=feather&logoColor=white)
 
 ### ⚙️ Backend Technologies
 ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
@@ -64,6 +65,7 @@
 ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 
 ### ☁️ Cloud & Tools
+![Cloudinary](https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=cloudinary&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
@@ -89,7 +91,6 @@ npm run start
 
 <details>
 <summary>📁 <b>View Backend Structure</b></summary>
-
 <br>
 
 ```
@@ -118,10 +119,22 @@ BE/
 │   ├── itemRoute.js           # Item API endpoints
 │   ├── orderRoute.js          # Order API endpoints
 │   └── userRoute.js           # User API endpoints
+├── 📜 scripts/
+│   ├── dataItem.js            # Sample item data
+│   ├── seedCategories.js      # Category seeding script
+│   └── seedItems.js           # Item seeding script
 ├── ⚙️ utils/
+│   ├── auth.js                # Authentication utilities
 │   ├── cloudinary.js          # Image upload service
+│   ├── errorApi.js            # API error handling
 │   └── multer.js              # File upload handling
-└── 🚀 server.js               # Main server file
+├── 📄 .dockerignore           # Docker ignore file
+├── 🐳 Dockerfile             # Docker configuration
+├── ❌ ERROR                  # Error logs/files
+├── 🔒 package-lock.json      # Dependency lock file
+├── 📦 package.json           # Project dependencies
+├── 🖥️ server.js              # Main server file
+└── 📋 vercel.json            # Vercel deployment config
 ```
 
 </details>
@@ -136,33 +149,65 @@ npm run dev
 
 <details>
 <summary>📁 <b>View Frontend Structure</b></summary>
-
 <br>
 
 ```
 FE/
 ├── 🎨 src/
-│   ├── 🔐 auth/
-│   │   ├── AuthModal.jsx       # Authentication modal
-│   │   ├── Login.jsx           # Login component
-│   │   └── Register.jsx        # Registration component
 │   ├── 🧩 components/
-│   │   ├── NavBar.jsx          # Navigation bar
-│   │   ├── Footer.jsx          # Footer component
-│   │   ├── ProductCard.jsx     # Product display card
-│   │   ├── Layout.jsx          # Main layout wrapper
-│   │   └── ...more components
-│   ├── 📄 pages/
-│   │   ├── Home.jsx            # Homepage
-│   │   ├── BuyOnline.jsx       # Shopping page
-│   │   ├── CartPage.jsx        # Shopping cart
-│   │   └── Contact.jsx         # Contact page
+│   │   ├── BrandValueSlider.jsx    # Brand value slider component
+│   │   ├── DisplayCardProduct.jsx  # Product display card
+│   │   ├── DotIndicators.jsx       # Carousel dot indicators
+│   │   ├── ErrorBoundary.jsx       # Error boundary wrapper
+│   │   ├── Footer.jsx              # Footer component
+│   │   ├── ImageGallery.jsx        # Image gallery component
+│   │   ├── Layout.jsx              # Main layout wrapper
+│   │   ├── NavBar.jsx              # Navigation bar
+│   │   ├── PaymentModal.jsx        # Payment modal
+│   │   ├── productCard.jsx         # Product card component
+│   │   ├── ProductDetailModal.jsx  # Product detail modal
+│   │   ├── ProductImage.jsx        # Product image component
+│   │   ├── ProtectedRoute.jsx      # Route protection
+│   │   ├── scrollButton.jsx        # Scroll to top button
+│   │   ├── SearchModal.jsx         # Search modal
+│   │   └── Toast.jsx               # Toast notifications
 │   ├── 🎯 contexts/
-│   │   └── AuthContext.jsx     # Authentication context
+│   │   ├── AuthContext.jsx         # Authentication context
+│   │   └── CartContext.jsx         # Shopping cart context
 │   ├── 🪝 hooks/
-│   │   └── useCarousel.js      # Custom carousel hook
-│   └── 📱 assets/              # Static assets
-└── 📦 package.json             # Dependencies
+│   │   ├── useAuthHeaders.js       # Auth headers hook
+│   │   └── useCarousel.js          # Custom carousel hook
+│   ├── 📄 pages/
+│   │   ├── About.jsx               # About page
+│   │   ├── Advantages.jsx          # Advantages page
+│   │   ├── BuyOnline.jsx           # Online shopping page
+│   │   ├── CartPage.jsx            # Shopping cart page
+│   │   ├── Contact.jsx             # Contact page
+│   │   ├── FAQs.jsx                # FAQ page
+│   │   ├── Home.jsx                # Homepage
+│   │   ├── MyOrders.jsx            # User orders page
+│   │   ├── OrderDetail.jsx         # Order detail page
+│   │   ├── OurCraftsmanship.jsx    # Craftsmanship page
+│   │   ├── paymentMethod.jsx       # Payment method page
+│   │   ├── Product.jsx             # Product listing page
+│   │   ├── ProductGrid.jsx         # Product grid view
+│   │   └── TutorialDetail.jsx      # Tutorial detail page
+│   ├── 🛍️ products material/
+│   │   └── Material.jsx            # Product materials
+│   ├── 🎨 App.css                  # Main styles
+│   ├── 📱 App.jsx                  # Main app component
+│   ├── 🎨 index.css                # Base styles
+│   └── 🚀 main.jsx                 # App entry point
+├── 🚫 .gitignore                   # Git ignore file
+├── 📋 eslint.config.js             # ESLint configuration
+├── 📄 index.html                   # HTML template
+├── 🔒 package-lock.json            # Dependency lock file
+├── 📦 package.json                 # Project dependencies
+├── 📮 postcss.config.js            # PostCSS configuration
+├── 📖 README.md                    # Project documentation
+├── 🌐 tailwind.config.js           # Tailwind CSS configuration
+├── 📋 vercel.json                  # Vercel deployment config
+└── ⚡ vite.config.js               # Vite build configuration
 ```
 
 </details>
