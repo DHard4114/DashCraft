@@ -1,4 +1,4 @@
-# 🛠️ DashCraft
+# 🛠️ DashCraft 🛠️
 ### *Unleash Your Inner Artist with Premium DIY Kits*
 
 <div align="center">
@@ -7,21 +7,14 @@
 
 </div>
 
-<br>
-
----
-
-<br>
 
 ## 🌟 **About DashCraft**
 
-**DashCraft** adalah toko online terdepan yang menghadirkan koleksi lengkap **DIY Kit (Do It Yourself Kit)** untuk memenuhi hasrat kreatif Anda di rumah. Kami menyediakan paket-paket lengkap berisi bahan-bahan premium, alat-alat berkualitas, dan panduan tutorial yang detail dan mudah dipahami.
-
-<br>
+**DashCraft** adalah toko online terdepan yang menghadirkan koleksi lengkap DIY Kit (Do It Yourself Kit) untuk memenuhi hasrat kreatif Anda di rumah. Kami menyediakan paket-paket lengkap berisi bahan-bahan premium, alat-alat berkualitas, dan panduan tutorial yang detail dan mudah dipahami, memungkinkan siapa saja dari pemula hingga yang berpengalaman untuk menciptakan karya kerajinan tangan yang menakjubkan.
 
 ### ✨ **Why Choose DashCraft?**
 
-<div align="center">
+<div align="justify">
 
 | 🎯 | **Complete Packages** | Semua bahan sudah diukur dengan tepat |
 |:---:|:---:|:---|
@@ -31,67 +24,13 @@
 | 🚀 | **Fast Delivery** | Pengiriman cepat ke seluruh Indonesia |
 
 </div>
-
-<br>
-
----
-
-<br>
-
-## 🛍️ **Our Premium DIY Collection**
-
-<div align="center">
-
-<table>
-<tr>
-<td align="center" width="250px" style="padding: 20px;">
-<h3>🧼</h3>
-<b>Organic Soap Kit</b><br>
-<i>Essential oils & natural ingredients</i>
-</td>
-<td align="center" width="250px" style="padding: 20px;">
-<h3>🕯️</h3>
-<b>Aromatherapy Candles</b><br>
-<i>Natural wax & premium scents</i>
-</td>
-<td align="center" width="250px" style="padding: 20px;">
-<h3>👜</h3>
-<b>Fashion Accessories</b><br>
-<i>Bags, jewelry & more</i>
-</td>
-</tr>
-<tr>
-<td align="center" width="250px" style="padding: 20px;">
-<h3>♻️</h3>
-<b>Upcycling Projects</b><br>
-<i>Turn waste into wonder</i>
-</td>
-<td align="center" width="250px" style="padding: 20px;">
-<h3>🌿</h3>
-<b>Mini Garden Kits</b><br>
-<i>Indoor plants & herbs</i>
-</td>
-<td align="center" width="250px" style="padding: 20px;">
-<h3>🔨</h3>
-<b>Woodworking</b><br>
-<i>Simple home decor projects</i>
-</td>
-</tr>
-</table>
-
-</div>
-
-<br>
-
----
-
-<br>
+</br>
 
 ## 🛠️ **Tech Stack**
 
 <div align="center">
 
-### 🎨 Frontend Technologies
+### 🔧 Frontend Technologies
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
@@ -109,10 +48,6 @@
 
 <br>
 
----
-
-<br>
-
 ## 🚀 **Quick Start Guide**
 
 ### 📥 **Clone the Repository**
@@ -121,7 +56,6 @@ git clone https://github.com/DHard4114/DashCraft.git
 cd DashCraft
 ```
 
-<br>
 
 ### 🔧 **Backend Setup**
 ```bash
@@ -169,9 +103,7 @@ BE/
 
 </details>
 
-<br>
-
-### 🎨 **Frontend Setup**
+### ⚙️ **Frontend Setup**
 ```bash
 cd FE
 npm install
@@ -211,36 +143,25 @@ FE/
 ```
 
 </details>
-
-<br>
-
----
-
-<br>
+</br>
 
 ## ✨ **Key Features**
 
 <div align="center">
 
 | Feature | Description | Status |
-|:-------:|:------------|:------:|
-| 🛒 **Shopping Cart** | Add, remove, and manage DIY kits | ![Active](https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square) |
-| 👤 **User Authentication** | Secure login and registration | ![Active](https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square) |
-| 💳 **Payment Integration** | Multiple payment methods | ![Active](https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square) |
-| 📱 **Responsive Design** | Works on all devices | ![Active](https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square) |
-| 🔍 **Product Search** | Find your perfect DIY kit | ![Active](https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square) |
-| ⭐ **Reviews & Ratings** | Customer feedback system | ![Active](https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square) |
+|---------|-------------|--------|
+| 🛒 **Shopping Cart** | Add, remove, and manage DIY kits | ✅ Active |
+| 👤 **User Authentication** | Secure login and registration | ✅ Active |
+| 💳 **Payment Integration** | Multiple payment methods | ✅ Active |
+| 📱 **Responsive Design** | Works on all devices | ✅ Active |
+| 🔍 **Product Search** | Find your perfect DIY kit | ✅ Active |
+| ⭐ **Reviews & Ratings** | Customer feedback system | ✅ Active |
 
 </div>
-
-<br>
-
----
-
 <br>
 
 ## 👥 **Meet Our Creative Team**
-
 <div align="center">
 
 ### 🎓 **K2 Group 13** - *Crafting Digital Excellence*
@@ -250,7 +171,7 @@ FE/
 <table>
 <tr>
 <td align="center" width="280px" style="padding: 25px; border: 1px solid #e1e5e9; border-radius: 12px;">
-<img src="https://github.com/DHard4114.png" width="100px" alt="Daffa Hardhan" style="border-radius: 50%; border: 3px solid #f39c12;"/><br><br>
+<img src="https://github.com/DHard4114.png?size=100" width="100px" height="100px" alt="Daffa Hardhan" style="border-radius: 50%; border: 3px solid #f39c12; object-fit: cover;"/><br><br>
 <h3>✨ Daffa Hardhan</h3>
 <a href="https://github.com/DHard4114">
 <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
@@ -258,7 +179,7 @@ FE/
 <code>📚 NPM: 2306161763</code>
 </td>
 <td align="center" width="280px" style="padding: 25px; border: 1px solid #e1e5e9; border-radius: 12px;">
-<img src="https://github.com/MRafli127.png" width="100px" alt="Muhammad Rafli" style="border-radius: 50%; border: 3px solid #3498db;"/><br><br>
+<img src="https://github.com/MRafli127.png?size=100" width="100px" height="100px" alt="Muhammad Rafli" style="border-radius: 50%; border: 3px solid #3498db; object-fit: cover;"/><br><br>
 <h3>⭐ Muhammad Rafli</h3>
 <a href="https://github.com/MRafli127">
 <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
@@ -266,7 +187,7 @@ FE/
 <code>📚 NPM: 2306250730</code>
 </td>
 <td align="center" width="280px" style="padding: 25px; border: 1px solid #e1e5e9; border-radius: 12px;">
-<img src="https://github.com/Ekazadex.png" width="100px" alt="Ekananda Zhafif Dean" style="border-radius: 50%; border: 3px solid #27ae60;"/><br><br>
+<img src="https://github.com/Ekazadex.png?size=100" width="100px" height="100px" alt="Ekananda Zhafif Dean" style="border-radius: 50%; border: 3px solid #27ae60; object-fit: cover;"/><br><br>
 <h3>🌟 Ekananda Zhafif D</h3>
 <a href="https://github.com/Ekazadex">
 <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
@@ -278,15 +199,13 @@ FE/
 
 <br>
 
-*"Passionate developers united by the vision of empowering creativity through technology"*⚡
+*"Passionate developers united by the vision of empowering creativity through technology"*
 
 </div>
 
 <br>
 
----
-
-<br>
+<div align="center">
 
 ### 🐛 **Found a Bug?**
 Please open an issue with detailed information about the bug and steps to reproduce it.
@@ -294,13 +213,6 @@ Please open an issue with detailed information about the bug and steps to reprod
 ### 💡 **Have an Idea?**
 We'd love to hear your suggestions! Open an issue to discuss new features.
 
-<br>
-
----
-
-<br>
-
-<div align="center">
 
 ### 🌟 **Show Your Support**
 
@@ -311,9 +223,6 @@ If you found this project helpful, please consider giving it a star! ⭐
 
 <br>
 
----
-
-<br>
 
 **Made by K2 Group 13**
 
