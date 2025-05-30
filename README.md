@@ -1,6 +1,9 @@
+<div align="center">
+  
 # 🛠️ DashCraft 🛠️
 ### *Unleash Your Inner Artist with Premium DIY Kits*
 
+</div>
 <div align="center">
   
 ![DashCraft Banner](https://hackmd.io/_uploads/SJiouDVzgl.png)
@@ -170,29 +173,35 @@ FE/
 
 <table>
 <tr>
-<td align="center" width="280px" style="padding: 25px; border: 1px solid #e1e5e9; border-radius: 12px;">
-<img src="https://github.com/DHard4114.png?size=100" width="100px" height="100px" alt="Daffa Hardhan" style="border-radius: 50%; border: 3px solid #f39c12; object-fit: cover;"/><br><br>
+<td align="center" width="280px" style="padding: 40px 25px; border: 1px solid #e1e5e9; border-radius: 12px; vertical-align: middle;">
+<br><br>
+<img src="https://github.com/DHard4114.png?size=100" width="100px" height="100px" alt="Daffa Hardhan" style="border-radius: 50%; border: 3px solid #f39c12; object-fit: cover;"/><br>
 <h3>✨ Daffa Hardhan</h3>
 <a href="https://github.com/DHard4114">
 <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
 </a><br><br>
 <code>📚 NPM: 2306161763</code>
+<br><br>
 </td>
-<td align="center" width="280px" style="padding: 25px; border: 1px solid #e1e5e9; border-radius: 12px;">
-<img src="https://github.com/MRafli127.png?size=100" width="100px" height="100px" alt="Muhammad Rafli" style="border-radius: 50%; border: 3px solid #3498db; object-fit: cover;"/><br><br>
+<td align="center" width="280px" style="padding: 40px 25px; border: 1px solid #e1e5e9; border-radius: 12px; vertical-align: middle;">
+<br><br>
+<img src="https://github.com/MRafli127.png?size=100" width="100px" height="100px" alt="Muhammad Rafli" style="border-radius: 50%; border: 3px solid #3498db; object-fit: cover;"/><br>
 <h3>⭐ Muhammad Rafli</h3>
 <a href="https://github.com/MRafli127">
 <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
 </a><br><br>
 <code>📚 NPM: 2306250730</code>
+<br><br>
 </td>
-<td align="center" width="280px" style="padding: 25px; border: 1px solid #e1e5e9; border-radius: 12px;">
-<img src="https://github.com/Ekazadex.png?size=100" width="100px" height="100px" alt="Ekananda Zhafif Dean" style="border-radius: 50%; border: 3px solid #27ae60; object-fit: cover;"/><br><br>
+<td align="center" width="280px" style="padding: 40px 25px; border: 1px solid #e1e5e9; border-radius: 12px; vertical-align: middle;">
+<br><br>
+<img src="https://github.com/Ekazadex.png?size=100" width="100px" height="100px" alt="Ekananda Zhafif Dean" style="border-radius: 50%; border: 3px solid #27ae60; object-fit: cover;"/><br>
 <h3>🌟 Ekananda Zhafif D</h3>
 <a href="https://github.com/Ekazadex">
 <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
 </a><br><br>
 <code>📚 NPM: 2306264420</code>
+<br><br>
 </td>
 </tr>
 </table>
@@ -222,7 +231,7 @@ If you found this project helpful, please consider giving it a star! ⭐
 [![GitHub issues](https://img.shields.io/github/issues/DHard4114/DashCraft?style=for-the-badge&logo=github)](https://github.com/DHard4114/DashCraft/issues)
 
 <br>
-
+<br>
 
 **Made by K2 Group 13**
 
