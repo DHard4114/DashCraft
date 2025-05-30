@@ -1,153 +1,198 @@
-<h1 align="center">DashCraft</h1>
+# 🛠️ DashCraft
 
-<p align="center">
-  <img src="https://hackmd.io/_uploads/SJiouDVzgl.png" alt="Image" width="900">
-</p>
+![DashCraft Banner](https://hackmd.io/_uploads/SJiouDVzgl.png)
 
-**DashCraft** adalah toko online terdepan yang menghadirkan koleksi lengkap DIY Kit (Do It Yourself Kit) untuk memenuhi hasrat kreatif Anda di rumah. Kami menyediakan paket-paket lengkap berisi bahan-bahan premium, alat-alat berkualitas, dan panduan tutorial yang detail dan mudah dipahami, memungkinkan siapa saja dari pemula hingga yang berpengalaman untuk menciptakan karya kerajinan tangan yang menakjubkan.
+## 🌟 **About DashCraft**
 
-Koleksi DIY Kit kami sangat beragam, mulai dari pembuatan sabun organik dengan essential oil pilihan, lilin aromaterapi dengan wangi natural, kit menjahit tas dan aksesori fashion, kerajinan kerdaur ulang yang ramah lingkungan, pembuatan perhiasan handmade, kit berkebun mini untuk tanaman hias, hingga proyek woodworking sederhana untuk dekorasi rumah. Setiap kit dilengkapi dengan bahan-bahan yang sudah diukur dengan tepat, tools yang dibutuhkan, serta booklet panduan bergambar yang mudah diikuti langkah demi langkah.
+**DashCraft** adalah toko online terdepan yang menghadirkan koleksi lengkap **DIY Kit (Do It Yourself Kit)** untuk memenuhi hasrat kreatif Anda di rumah. Kami menyediakan paket-paket lengkap berisi bahan-bahan premium, alat-alat berkualitas, dan panduan tutorial yang detail dan mudah dipahami.
 
-**DashCraft** percaya bahwa aktivitas DIY bukan hanya sekedar hobi, tetapi juga terapi kreatif yang dapat mengurangi stress, meningkatkan fokus, dan memberikan kepuasan tersendiri ketika melihat hasil karya sendiri. Kami berkomitmen mendukung gaya hidup kreatif dan sustainable dengan menyediakan bahan-bahan eco-friendly dan kemasan yang dapat didaur ulang.
+### ✨ **Why Choose DashCraft?**
 
-Dengan layanan pengiriman cepat, customer service yang responsif, dan jaminan kualitas produk, **DashCraft** menjadi partner terpercaya bagi komunitas DIY enthusiast di seluruh Indonesia. Mari wujudkan ide kreatif Anda bersama DashCraft - tempat di mana setiap orang bisa menjadi craftsperson handal!
+🎯 **Complete Packages** - Semua bahan sudah diukur dengan tepat  
+🎨 **Premium Quality** - Bahan-bahan berkualitas tinggi  
+📚 **Easy Tutorials** - Panduan step-by-step yang mudah diikuti  
+🌱 **Eco-Friendly** - Komitmen pada produk ramah lingkungan  
+🚀 **Fast Delivery** - Pengiriman cepat ke seluruh Indonesia  
 
-## 🛠️Tech Stack
+---
 
-![image](https://hackmd.io/_uploads/H1lv0v4Mge.png)![image](https://hackmd.io/_uploads/S1WjRP4fee.png)![image](https://hackmd.io/_uploads/BJpsRPEfxg.png)![image](https://hackmd.io/_uploads/rywpCwEMgx.png)![image](https://hackmd.io/_uploads/Bkn6CwVGle.png)![image](https://hackmd.io/_uploads/SyuRRDNfgl.png)![image](https://hackmd.io/_uploads/HJk1yu4fxg.png)![image](https://hackmd.io/_uploads/HytyJOEzlg.png)![image](https://hackmd.io/_uploads/HkNLJOEMlg.png)![image](https://hackmd.io/_uploads/HJjwJOVMlg.png)
+## 🛍️ **Our DIY Collection**
 
-## Installation Guide
+<table>
+<tr>
+<td align="center">🧼<br><b>Organic Soap Kit</b><br>Essential oils & natural ingredients</td>
+<td align="center">🕯️<br><b>Aromatherapy Candles</b><br>Natural wax & premium scents</td>
+<td align="center">👜<br><b>Fashion Accessories</b><br>Bags, jewelry & more</td>
+</tr>
+<tr>
+<td align="center">♻️<br><b>Upcycling Projects</b><br>Turn waste into wonder</td>
+<td align="center">🌿<br><b>Mini Garden Kits</b><br>Indoor plants & herbs</td>
+<td align="center">🔨<br><b>Woodworking</b><br>Simple home decor projects</td>
+</tr>
+</table>
 
-```
+---
+
+## 🛠️ **Tech Stack**
+
+<div align="center">
+
+### Frontend Technologies
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+
+
+### Backend Technologies
+![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge&logo=express&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
+
+### Cloud & Tools
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+
+</div>
+
+---
+
+## 🚀 **Quick Start Guide**
+
+### 📥 **Clone the Repository**
+```bash
 git clone https://github.com/DHard4114/DashCraft.git
+cd DashCraft
 ```
 
-### Backend
-
-```
+### 🔧 **Backend Setup**
+```bash
 cd BE
 npm install
 npm run start
 ```
 
-- **Stucture File Backend**
-    ```
-    BE/
-    ├── config/
-    │   └── db.js
-    ├── middleware/
-    │   ├── authMiddleware.js
-    │   ├── corsMiddleware.js
-    │   ├── errorMiddleware.js
-    │   ├── roleMiddleware.js
-    │   └── validationMiddleware.js
-    ├── models/
-    │   ├── cartModel.js
-    │   ├── categoryModel.js
-    │   ├── couponModel.js
-    │   ├── itemModel.js
-    │   ├── orderModel.js
-    │   ├── paymentModel.js
-    │   ├── reviewModel.js
-    │   ├── userModel.js
-    │   └── wishlistModel.js
-    ├── repositories/
-    │   ├── cartRepository.js
-    │   ├── categoryRepository.js
-    │   ├── itemRepository.js
-    │   ├── orderRepository.js
-    │   ├── paymentRepository.js
-    │   ├── reviewRepository.js
-    │   └── userRepository.js
-    ├── routes/
-    │   ├── cartRoute.js
-    │   ├── categoryRoute.js
-    │   ├── itemRoute.js
-    │   ├── orderRoute.js
-    │   ├── paymentRoute.js
-    │   ├── reviewRoute.js
-    │   └── userRoute.js
-    ├── utils/
-    │   ├── cloudinary.js
-    │   └── multer.js
-    ├── .dockerignore
-    ├── .env
-    ├── CACHED
-    ├── Dockerfile
-    ├── ERROR
-    ├── package-lock.json
-    ├── package.json
-    └── server.js
-    ```
+<details>
+<summary>📁 <b>Backend Structure</b></summary>
 
-### Frontend
 ```
+BE/
+├── 🔧 config/
+│   └── db.js
+├── 🛡️ middleware/
+│   ├── authMiddleware.js
+│   ├── corsMiddleware.js
+│   ├── errorMiddleware.js
+│   ├── roleMiddleware.js
+│   └── validationMiddleware.js
+├── 📊 models/
+│   ├── cartModel.js
+│   ├── categoryModel.js
+│   ├── itemModel.js
+│   ├── orderModel.js
+│   └── userModel.js
+├── 🗄️ repositories/
+│   ├── cartRepository.js
+│   ├── itemRepository.js
+│   ├── orderRepository.js
+│   └── userRepository.js
+├── 🛤️ routes/
+│   ├── cartRoute.js
+│   ├── itemRoute.js
+│   ├── orderRoute.js
+│   └── userRoute.js
+├── ⚙️ utils/
+│   ├── cloudinary.js
+│   └── multer.js
+└── 🚀 server.js
+```
+
+</details>
+
+### ⚙️ **Frontend Setup**
+```bash
 cd FE
 npm install
 npm install lucide-react
 npm run dev
 ```
-![image](https://hackmd.io/_uploads/SkMArvEGll.png)
 
-- **Stucture File Frontend**
-    ```
-    FE/
-    ├── node_modules/
-    ├── public/
-    ├── src/
-    │   ├── assets/
-    │   ├── auth/
-    │   │   ├── AuthModal.jsx
-    │   │   ├── Login.jsx
-    │   │   └── Register.jsx
-    │   ├── components/
-    │   │   ├── BrandValueSlider.jsx
-    │   │   ├── DotIndicators.jsx
-    │   │   ├── Footer.jsx
-    │   │   ├── ImageGallery.jsx
-    │   │   ├── Layout.jsx
-    │   │   ├── NavBar.jsx
-    │   │   ├── PaymentModal.jsx
-    │   │   ├── productCard.jsx
-    │   │   ├── ProductDetailModal.jsx
-    │   │   ├── ProtectedRoute.jsx
-    │   │   └── scrollButton.jsx
-    │   ├── contexts/
-    │   │   └── AuthContext.jsx
-    │   ├── hooks/
-    │   │   └── useCarousel.js
-    │   ├── pages/
-    │   │   ├── About.jsx
-    │   │   ├── Advantages.jsx
-    │   │   ├── BuyOnline.jsx
-    │   │   ├── CartPage.jsx
-    │   │   ├── Contact.jsx
-    │   │   ├── Home.jsx
-    │   │   ├── paymentMethod.jsx
-    │   │   └── ProductGrid.jsx
-    │   ├── products/
-    │   │   └── material/
-    │   │       └── Material.jsx
-    │   ├── App.css
-    │   ├── App.jsx
-    │   ├── index.css
-    │   └── main.jsx
-    ├── .env
-    ├── .gitignore
-    ├── eslint.config.js
-    ├── index.html
-    ├── package-lock.json
-    ├── package.json
-    ├── postcss.config.js
-    ├── README.md
-    ├── tailwind.config.js
-    ├── vercel.json
-    └── vite.config.js
-    ```
+<details>
+<summary>📁 <b>Frontend Structure</b></summary>
 
-## **Authors ✍️** 
-| K2 Group 13 | NPM |
-| :----------------: | :------------: |
-| [**Daffa Hardhan**](https://github.com/DHard4114)| 2306161763 |
-| [**Muhammad Rafli**](https://github.com/MRafli127)| 2306250730 |
-| [**Ekananda Zhafif Dean**](https://github.com/Ekazadex)| 2306264420 |
+```
+FE/
+├── 🎨 src/
+│   ├── 🔐 auth/
+│   │   ├── AuthModal.jsx
+│   │   ├── Login.jsx
+│   │   └── Register.jsx
+│   ├── 🧩 components/
+│   │   ├── NavBar.jsx
+│   │   ├── Footer.jsx
+│   │   ├── ProductCard.jsx
+│   │   └── Layout.jsx
+│   ├── 📄 pages/
+│   │   ├── Home.jsx
+│   │   ├── BuyOnline.jsx
+│   │   ├── CartPage.jsx
+│   │   └── Contact.jsx
+│   ├── 🎯 contexts/
+│   │   └── AuthContext.jsx
+│   └── 🪝 hooks/
+│       └── useCarousel.js
+└── 📦 package.json
+```
+
+</details>
+
+---
+
+## ✨ **Key Features**
+
+<div align="center">
+
+| Feature | Description | Status |
+|---------|-------------|--------|
+| 🛒 **Shopping Cart** | Add, remove, and manage DIY kits | ✅ Active |
+| 👤 **User Authentication** | Secure login and registration | ✅ Active |
+| 💳 **Payment Integration** | Multiple payment methods | ✅ Active |
+| 📱 **Responsive Design** | Works on all devices | ✅ Active |
+| 🔍 **Product Search** | Find your perfect DIY kit | ✅ Active |
+| ⭐ **Reviews & Ratings** | Customer feedback system | ✅ Active |
+
+</div>
+
+---
+
+## 👥 **Meet Our Creative Team**
+<div align="center">
+<table>
+<tr>
+<td align="center" width="300">
+<img src="https://github.com/DHard4114.png" width="120px" alt="Daffa Hardhan" style="border-radius: 50%;"/><br><br>
+<b>✨ Daffa Hardhan</b><br>
+
+<a href="https://github.com/DHard4114">
+<img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
+</a><br>
+<code>NPM: 2306161763</code>
+</td>
+<td align="center" width="300">
+<img src="https://github.com/MRafli127.png" width="120px" alt="Muhammad Rafli" style="border-radius: 50%;"/><br><br>
+<b>⭐ Muhammad Rafli</b><br>
+<a href="https://github.com/MRafli127">
+<img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
+</a><br>
+<code>NPM: 2306250730</code>
+</td>
+<td align="center" width="300">
+<img src="https://github.com/Ekazadex.png" width="120px" alt="Ekananda Zhafif Dean" style="border-radius: 50%;"/><br><br>
+<b>🌟 Ekananda Zhafif D</b><br>
+<a href="https://github.com/Ekazadex">
+<img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
+</a><br>
+<code>NPM: 2306264420</code>
+</td>
+</tr>
+</table>
+<br>
