@@ -140,7 +140,7 @@ FE/
 
 ```
 
-## **Authors ✍️** 
+## **Authors ✍️**
 | K2 Group 13 | NPM |
 | :----------------: | :------------: |
 | [**Daffa Hardhan**](https://github.com/DHard4114)| 2306161763 |

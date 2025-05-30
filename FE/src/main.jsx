@@ -1,17 +1,13 @@
-import { StrictMode } from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-import './index.css';
-import App from './App.jsx';
-import Footer from './component/Footer.jsx';
-import NavBar from './component/NavBar.jsx';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
+import './index.css'
+import { AuthProvider } from './contexts/AuthContext'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <BrowserRouter>
-      <NavBar />
+  <React.StrictMode>
+    <AuthProvider>
       <App />
-      <Footer />
-    </BrowserRouter>
-  </StrictMode>
-);
+    </AuthProvider>
+  </React.StrictMode>,
+)

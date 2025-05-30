@@ -1,21 +1,41 @@
-const express = require("express");
-const itemRepo = require("../repositories/itemRepository");
-const upload = require("../utils/multer");
-
+const express = require('express');
 const router = express.Router();
+const ItemRepository = require('../repositories/itemRepository');
+const { authMiddleware } = require('../middleware/authMiddleware');
+const authorizeRoles = require('../middleware/roleMiddleware');
+const upload = require('../utils/multer');
 
-router.get("/", itemRepo.getAllItems);
+// Public routes
+router.get('/', ItemRepository.getAllItems);
+router.get('/category/:categorySlug', ItemRepository.getItemsByCategory);
+router.get('/:slug', ItemRepository.getItemBySlug);
 
-router.post("/addItemToStore", upload.single("image"), itemRepo.addItemToStore);
+// Protected routes
+router.use(authMiddleware);
 
-router.get("/store/:storeId", itemRepo.getItemsByStore);
+// Creator and Admin routes
+router.post(
+    '/',
+    authorizeRoles('admin', 'creator'),
+    upload.array('images', 5),
+    ItemRepository.createItem
+);
 
-router.get("/:itemId", itemRepo.getItemById);
+router.put(
+    '/:id',
+    authorizeRoles('admin', 'creator'),
+    upload.array('images', 5),
+    ItemRepository.updateItem
+);
 
-router.put("/:itemId", upload.single("image"), itemRepo.updateItem);
+router.delete(
+    '/:id',
+    authorizeRoles('admin', 'creator'),
+    ItemRepository.deleteItem
+);
 
-router.patch("/:itemId", upload.none(), itemRepo.updateItem);
-
-router.delete("/:itemId", itemRepo.deleteItem);
+// Rating routes
+router.post('/:itemId/rating', ItemRepository.addRating);
+router.get('/:itemId/ratings', ItemRepository.getItemRatings);
 
 module.exports = router;

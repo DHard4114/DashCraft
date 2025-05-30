@@ -1,31 +1,66 @@
-import { Routes, Route } from "react-router-dom";
-import Home from './hompage/Home'
-import Login from "./auth/Login";
-import About from "./hompage/About";
-import Register from "./auth/Register";
-import Contact from "./hompage/Contact";
-import Materials from "./products/material/Material";
-import AuthModal from "./auth/AuthModal";
-import BuyOnline from "./hompage/BuyOnline";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
+import Layout from './components/Layout';
 
-function App() {
+// Pages
+import Home from './pages/Home';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Product from './pages/Product';
+import BuyOnline from './pages/BuyOnline';
+import CartPage from './pages/CartPage';
+import Materials from './products/material/Material';
+import MyOrders from './pages/MyOrders';
+import OrderDetail from './pages/OrderDetail';
+import OurCraftsmanship from './pages/OurCraftsmanship';
+import FAQs from './pages/FAQs';
+import TutorialDetail from './pages/TutorialDetail';
+
+// Auth Pages
+import Login from './auth/Login';
+import Register from './auth/Register';
+
+const App = () => {
   return (
-    <>
-    <div className="w-full min-h-screen bg-[#f3f2f3] z-50">
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/auth/login" element={<Login />} />
-        <Route path="/auth/register" element={<Register />} />
-        <Route path="/cart" element= {<Contact />} />
-        <Route path="/contact-us" element= {<Contact />} />
-        <Route path="/products/materials" element={<Materials />} />
-        <Route path="/authmodal" element= {<AuthModal />} />
-        <Route path="/buy-online" element={<BuyOnline />} />
-      </Routes>
-    </div>
-    </>
-  )
-}
+    <AuthProvider>
+      <Router>
+        <Routes>
+          {/* Auth Routes - Outside Layout */}
+          <Route path="/auth/login" element={<Login />} />
+          <Route path="/auth/register" element={<Register />} />
+          
+          {/* Main App Routes - Inside Layout */}
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="/products" element={<Product />} />
+            <Route path="/buy-online" element={<BuyOnline />} />
+            <Route path="/tutorial/:slug" element={<TutorialDetail />} />
+            <Route path="/cart" element={
+              <ProtectedRoute>
+                <CartPage />
+              </ProtectedRoute>
+            } />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact-us" element={<Contact />} />
+            <Route path="/products/materials" element={<Materials />} />
+            <Route path="/my-orders" element={
+              <ProtectedRoute>
+                <MyOrders />
+              </ProtectedRoute>
+            } />
+            <Route path="/orders/:orderId" element={
+              <ProtectedRoute>
+                <OrderDetail />
+              </ProtectedRoute>
+            } />
+            <Route path="/craftsmanship" element={<OurCraftsmanship />} />
+            <Route path="/faqs" element={<FAQs />} />
+          </Route>
+        </Routes>
+      </Router>
+    </AuthProvider>
+  );
+};
 
-export default App
+export default App;

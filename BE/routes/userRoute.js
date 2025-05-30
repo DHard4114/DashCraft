@@ -1,19 +1,31 @@
-const express = require("express");
-const userRepo = require("../repositories/userRepository");
+const express = require('express');
+const UserRepository = require('../repositories/userRepository');
+const { authMiddleware } = require('../middleware/authMiddleware');
+
 const router = express.Router();
 
-router.get("/", userRepo.getAllUser);
+// Auth routes (public)
+router.post('/register', UserRepository.register);
+router.post('/login', UserRepository.login);
+router.get('/verify', authMiddleware, UserRepository.verifyToken);
 
-router.post("/login", userRepo.login);
+// Protected routes
+router.use(authMiddleware);
 
-router.post("/getUser", userRepo.getUserById);
+// Profile routes
+router.get('/profile', UserRepository.getProfile);
+router.put('/profile', UserRepository.updateProfile);
 
-router.post("/transactions", userRepo.getUserTransactions);
+// Address management routes
+router.get('/addresses', UserRepository.getUserAddresses);
+router.get('/addresses/default', UserRepository.getDefaultAddress);
+router.post('/addresses', UserRepository.addUserAddress);
+router.put('/addresses/:addressId', UserRepository.updateUserAddress);
+router.put('/addresses/:addressId/default', UserRepository.setDefaultAddress);
+router.delete('/addresses/:addressId', UserRepository.deleteUserAddress);
 
-router.post("/register", userRepo.addUser);
-
-router.delete("/", userRepo.deleteUser);
-
-router.put("/changePassword", userRepo.changePassword);
+// Admin routes
+router.get('/all', UserRepository.getAllUsers);
+router.put('/:userId/role', UserRepository.updateUserRole);
 
 module.exports = router;

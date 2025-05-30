@@ -1,91 +1,215 @@
 const Review = require('../models/reviewModel');
-const Item = require('../models/itemModel');
+const Order = require('../models/orderModel');
+const ApiError = require('../utils/errorApi');
+const mongoose = require('mongoose');
 
-const updateItemAverageRating = async (itemId) => {
-    const reviews = await Review.find({ item: itemId });
-    if (reviews.length === 0) return;
+class ReviewRepository {
+    // Add review
+    static async addReview(req, res) {
+        try {
+            const { itemId } = req.params;
+            const { rating, comment } = req.body;
 
-    const averageRating = reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length;
-    await Item.findByIdAndUpdate(itemId, { averageRating: averageRating.toFixed(1) });
-};
+            // Validate rating
+            if (!rating || rating < 1 || rating > 5) {
+                throw new ApiError(400, 'Rating must be between 1 and 5');
+            }
 
-exports.createReview = async (req, res) => {
-    try {
-        const { item, rating, comment } = req.body;
-        const user = req.user._id;
+            // Check if user bought this item and it's delivered
+            const order = await Order.findOne({
+                user: req.user.id,
+                'items.item': itemId,
+                status: 'delivered'
+            });
 
-        const review = new Review({ user, item, rating, comment });
-        await review.save();
+            if (!order) {
+                throw new ApiError(400, 'You can only review items you have purchased and received');
+            }
 
-        await updateItemAverageRating(item);
+            // Check if already reviewed
+            const existingReview = await Review.findOne({
+                item: itemId,
+                user: req.user.id
+            });
 
-        res.status(201).json({ message: 'Review added successfully', review });
-    } catch (err) {
-        res.status(400).json({ error: err.message });
-    }
-};
+            if (existingReview) {
+                throw new ApiError(400, 'You have already reviewed this item');
+            }
 
-exports.getAllReviews = async (req, res) => {
-    try {
-        const filter = req.query.item ? { item: req.query.item } : {};
-        const reviews = await Review.find(filter)
-            .populate('user', 'name') 
-            .populate('item', 'name');
-        res.json(reviews);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-};
+            const review = new Review({
+                item: itemId,
+                user: req.user.id,
+                order: order._id,
+                rating: parseInt(rating),
+                comment: comment?.trim() || ''
+            });
 
-exports.getReviewById = async (req, res) => {
-    try {
-        const review = await Review.findById(req.params.id)
-            .populate('user', 'name')
-            .populate('item', 'name');
+            await review.save();
 
-        if (!review) return res.status(404).json({ error: 'Review not found' });
-        res.json(review);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-};
+            // Populate for response
+            await review.populate([
+                { path: 'user', select: 'username' },
+                { path: 'item', select: 'name' }
+            ]);
 
-exports.updateReview = async (req, res) => {
-    try {
-        const { rating, comment } = req.body;
-        const review = await Review.findById(req.params.id);
-        if (!review) return res.status(404).json({ error: 'Review not found' });
-
-        if (String(review.user) !== String(req.user._id)) {
-            return res.status(403).json({ error: 'Unauthorized' });
+            res.status(201).json({
+                success: true,
+                data: review,
+                message: 'Review added successfully'
+            });
+        } catch (error) {
+            console.error('Add review error:', error);
+            res.status(error.statusCode || 500).json({
+                success: false,
+                error: error.message
+            });
         }
-
-        review.rating = rating ?? review.rating;
-        review.comment = comment ?? review.comment;
-
-        await review.save();
-        await updateItemAverageRating(review.item);
-
-        res.json({ message: 'Review updated', review });
-    } catch (err) {
-        res.status(400).json({ error: err.message });
     }
-};
 
-exports.deleteReview = async (req, res) => {
-    try {
-        const review = await Review.findById(req.params.id);
-        if (!review) return res.status(404).json({ error: 'Review not found' });
+    // Get item reviews
+    static async getItemReviews(req, res) {
+        try {
+            const { itemId } = req.params;
+            const { page = 1, limit = 10 } = req.query;
 
-        if (String(review.user) !== String(req.user._id)) {
-            return res.status(403).json({ error: 'Unauthorized' });
+            if (!mongoose.Types.ObjectId.isValid(itemId)) {
+                throw new ApiError(400, 'Invalid item ID');
+            }
+
+            const skip = (page - 1) * limit;
+
+            const reviews = await Review.find({ 
+                item: itemId, 
+                isHidden: false 
+            })
+            .populate('user', 'username')
+            .sort({ createdAt: -1 })
+            .skip(skip)
+            .limit(parseInt(limit));
+
+            // Calculate statistics
+            const stats = await Review.aggregate([
+                { $match: { item: new mongoose.Types.ObjectId(itemId), isHidden: false } },
+                {
+                    $group: {
+                        _id: null,
+                        averageRating: { $avg: '$rating' },
+                        totalReviews: { $sum: 1 },
+                        ratingDistribution: {
+                            $push: '$rating'
+                        }
+                    }
+                }
+            ]);
+
+            // Calculate rating breakdown
+            let ratingBreakdown = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+            if (stats[0]?.ratingDistribution) {
+                stats[0].ratingDistribution.forEach(rating => {
+                    ratingBreakdown[rating]++;
+                });
+            }
+
+            res.status(200).json({
+                success: true,
+                data: {
+                    reviews,
+                    statistics: {
+                        averageRating: Number((stats[0]?.averageRating || 0).toFixed(1)),
+                        totalReviews: stats[0]?.totalReviews || 0,
+                        ratingBreakdown
+                    },
+                    pagination: {
+                        currentPage: parseInt(page),
+                        totalPages: Math.ceil((stats[0]?.totalReviews || 0) / limit),
+                        hasNext: skip + reviews.length < (stats[0]?.totalReviews || 0)
+                    }
+                }
+            });
+        } catch (error) {
+            console.error('Get reviews error:', error);
+            res.status(error.statusCode || 500).json({
+                success: false,
+                error: error.message
+            });
         }
-
-        await Review.deleteOne({ _id: req.params.id });
-        await updateItemAverageRating(review.item);
-
-        res.json({ message: 'Review deleted' });
-    } catch (err) {
-        res.status(500).json({ error: err.message });
     }
-};
+
+    // Check if user can review
+    static async canUserReview(req, res) {
+        try {
+            const { itemId } = req.params;
+
+            if (!mongoose.Types.ObjectId.isValid(itemId)) {
+                throw new ApiError(400, 'Invalid item ID');
+            }
+
+            const order = await Order.findOne({
+                user: req.user.id,
+                'items.item': itemId,
+                status: 'delivered'
+            });
+
+            const existingReview = await Review.findOne({
+                item: itemId,
+                user: req.user.id
+            });
+
+            res.status(200).json({
+                success: true,
+                data: {
+                    canReview: !!order && !existingReview,
+                    hasPurchased: !!order,
+                    hasReviewed: !!existingReview,
+                    reason: !order ? 'Item not purchased or not delivered yet' : 
+                           existingReview ? 'Already reviewed' : 'Can review'
+                }
+            });
+        } catch (error) {
+            console.error('Can review check error:', error);
+            res.status(error.statusCode || 500).json({
+                success: false,
+                error: error.message
+            });
+        }
+    }
+
+    // Get user's reviews
+    static async getUserReviews(req, res) {
+        try {
+            const { page = 1, limit = 10 } = req.query;
+            const skip = (page - 1) * limit;
+
+            const reviews = await Review.find({ user: req.user.id })
+                .populate([
+                    { path: 'item', select: 'name slug images price' },
+                    { path: 'order', select: 'orderNumber' }
+                ])
+                .sort({ createdAt: -1 })
+                .skip(skip)
+                .limit(parseInt(limit));
+
+            const totalReviews = await Review.countDocuments({ user: req.user.id });
+
+            res.status(200).json({
+                success: true,
+                data: {
+                    reviews,
+                    pagination: {
+                        currentPage: parseInt(page),
+                        totalPages: Math.ceil(totalReviews / limit),
+                        totalReviews
+                    }
+                }
+            });
+        } catch (error) {
+            console.error('Get user reviews error:', error);
+            res.status(500).json({
+                success: false,
+                error: error.message
+            });
+        }
+    }
+}
+
+module.exports = ReviewRepository;
