@@ -10,7 +10,6 @@
 
 </div>
 
-
 ## 🌟 **About DashCraft**
 
 **DashCraft** adalah toko online terdepan yang menghadirkan koleksi lengkap DIY Kit (Do It Yourself Kit) untuk memenuhi hasrat kreatif Anda di rumah. Kami menyediakan paket-paket lengkap berisi bahan-bahan premium, alat-alat berkualitas, dan panduan tutorial yang detail dan mudah dipahami, memungkinkan siapa saja dari pemula hingga yang berpengalaman untuk menciptakan karya kerajinan tangan yang menakjubkan.
@@ -27,27 +26,212 @@
 | 🚀 | **Fast Delivery** | Pengiriman cepat ke seluruh Indonesia |
 
 </div>
-</br>
+<br>
 
-## 🛍️ **Our DIY Collection**
+## 🗂️ **Product Categories**
 
-<div align="center">
+DashCraft menawarkan 4 kategori utama yang dirancang untuk berbagai tingkat keahlian dan minat:
+
+### 🌿 **1. Eco-Friendly Products (Code: 001)**
+*Produk ramah lingkungan dan berkelanjutan untuk kehidupan yang lebih hijau*
+
+**Featured Materials:**
+- **Recycled Paper** - Kertas daur ulang untuk berbagai proyek kreatif
+- **Natural Oils** - Minyak alami untuk pembuatan sabun dan produk perawatan  
+- **Organic Waste** - Sampah organik untuk kompos dan pertanian berkelanjutan
+
+### 🌱 **2. Gardening & Upcycling (Code: 002)**
+*Kerajinan untuk berkebun dan mendaur ulang barang bekas*
+
+**Featured Materials:**
+- **Plastic Containers** - Container plastik bekas untuk pot tanaman dan storage
+- **Organic Soil** - Tanah organik untuk pertumbuhan tanaman yang sehat
+
+### 🔬 **3. DIY Science & Innovation (Code: 003)**
+*Proyek sains dan inovasi teknologi ramah lingkungan*
+
+**Featured Materials:**
+- **Cardboard** - Kardus untuk eksperimen dan konstruksi ringan
+- **Aluminum Foil** - Foil aluminium untuk refleksi dan insulasi termal
+
+### 🎨 **4. Traditional & Artistic Crafts (Code: 004)**
+*Kerajinan tradisional dan seni kreatif*
+
+**Featured Materials:**
+- **Natural Dyes** - Pewarna alami dari tumbuhan untuk batik dan tekstil
+- **Cotton Fabric** - Kain katun untuk batik dan kerajinan tekstil
+- **Paper Materials** - Bahan kertas untuk kerajinan dan perhiasan unik
+<br>
+
+## 🛍️ **Our Premium DIY Kits Collection**
+
+### 🌿 **Eco-Friendly Collection**
+
+<details>
+<summary><strong>📄 DIY Recycled Paper Kit - Rp 50,000</strong></summary>
+<br>
   
-<table>
-<tr>
-<td align="center">🧼<br><b>Organic Soap Kit</b><br>Essential oils & natural ingredients</td>
-<td align="center">🕯️<br><b>Aromatherapy Candles</b><br>Natural wax & premium scents</td>
-<td align="center">👜<br><b>Fashion Accessories</b><br>Bags, jewelry & more</td>
-</tr>
-<tr>
-<td align="center">♻️<br><b>Upcycling Projects</b><br>Turn waste into wonder</td>
-<td align="center">🌿<br><b>Mini Garden Kits</b><br>Indoor plants & herbs</td>
-<td align="center">🔨<br><b>Woodworking</b><br>Simple home decor projects</td>
-</tr>
-</table>
+**Difficulty:** Mudah | **Time:** 2 jam
 
-</div>
-</br>
+Transform waste paper into beautiful handmade paper sheets perfect for crafting and art projects.
+
+**What's Included:**
+- Kertas bekas (20 lembar)
+- Air (500 ml)
+- Blender (1 buah)
+- Saringan (1 buah)
+
+**Step-by-Step Process:**
+1. Potong kecil-kecil kertas bekas
+2. Blender bersama air hingga menjadi bubur
+3. Tuangkan bubur ke saringan dan ratakan
+4. Keringkan hasil saringan hingga menjadi kertas
+
+**Tags:** recycle, paper, eco
+</details>
+
+<details>
+<summary><strong>🧼 Eco Soap Making Kit - Rp 95,000</strong></summary>
+<br>
+  
+**Difficulty:** Sedang | **Time:** 1.5 jam
+
+Create natural, chemical-free soap bars using organic ingredients for a sustainable lifestyle.
+
+**What's Included:**
+- Minyak kelapa (250 ml)
+- NaOH (50 g)
+- Air (100 ml)
+- Pewangi alami (10 ml)
+
+**Step-by-Step Process:**
+1. Campurkan NaOH dengan air (hati-hati panas)
+2. Campurkan larutan dengan minyak kelapa
+3. Aduk hingga mengental, tambahkan pewangi
+4. Tuang ke cetakan dan diamkan 24 jam
+
+**Tags:** soap, eco, natural
+</details>
+
+
+### 🌱 **Gardening & Upcycling Collection**
+
+<details>
+<summary><strong>🌿 Organic Compost Kit - Rp 40,000</strong></summary>
+<br>
+
+**Difficulty:** Mudah | **Time:** 1 minggu
+
+Turn your kitchen waste into nutrient-rich compost for healthier plants and sustainable gardening.
+
+**What's Included:**
+- Ember kompos (1 buah)
+- Sampah organik (1 kg)
+- Tanah (500 g)
+
+**Step-by-Step Process:**
+1. Masukkan lapisan tanah ke dasar ember
+2. Tambahkan sampah organik secara bertahap
+3. Aduk setiap 2 hari
+4. Setelah 1 minggu, kompos siap digunakan
+
+**Tags:** compost, organic, recycle
+</details>
+
+<details>
+<summary><strong>🪴 Plastic Bottle Planter Kit - Rp 30,000</strong></summary>
+<br>
+
+**Difficulty:** Mudah | **Time:** 1 jam
+
+Upcycle plastic bottles into beautiful planters while contributing to environmental conservation.
+
+**What's Included:**
+- Botol plastik (2 buah)
+- Cat akrilik (50 ml)
+- Pisau cutter (1 buah)
+- Tanah dan bibit (secukupnya)
+
+**Step-by-Step Process:**
+1. Potong botol sesuai desain pot
+2. Cat botol sesuai kreativitas
+3. Isi dengan tanah dan tanam bibit
+
+**Tags:** plastic, plant, recycle
+</details>
+
+### 🔬 **DIY Science & Innovation Collection**
+
+<details>
+<summary><strong>☀️ Solar Oven Kit - Rp 85,000</strong></summary>
+<br>
+
+**Difficulty:** Sedang | **Time:** 2 jam
+
+Build your own solar-powered oven and harness renewable energy for cooking experiments.
+
+**What's Included:**
+- Kardus (1 buah)
+- Aluminium foil (1 roll)
+- Plastik transparan (1 lembar)
+- Isolasi (1 roll)
+
+**Step-by-Step Process:**
+1. Lapisi dalam kardus dengan aluminium foil
+2. Buat jendela plastik untuk menahan panas
+3. Arahkan ke matahari dan uji dengan makanan
+
+**Tags:** solar, experiment, eco
+</details>
+
+### 🎨 **Traditional & Artistic Crafts Collection**
+
+<details>
+<summary><strong>🎨 Natural Dyes Batik Kit - Rp 120,000</strong></summary>
+<br>
+
+**Difficulty:** Sulit | **Time:** 3-4 jam
+
+Master the ancient art of batik using traditional techniques and natural plant-based dyes.
+
+**What's Included:**
+- Kain mori (1 meter)
+- Canting (1 buah)
+- Lilin batik (100 g)
+- Pewarna alami (100 ml)
+
+**Step-by-Step Process:**
+1. Gambar motif di kain menggunakan canting dan lilin
+2. Celupkan kain ke dalam larutan pewarna alami
+3. Rebus kain untuk menghilangkan lilin
+4. Keringkan dan setrika kain batik
+
+**Tags:** batik, natural-dye, traditional
+</details>
+
+<details>
+<summary><strong>📿 Upcycled Paper Beads Kit - Rp 52,000</strong></summary>
+<br>
+
+**Difficulty:** Mudah | **Time:** 1-2 jam
+
+Create unique jewelry pieces from recycled paper, combining sustainability with artistic expression.
+
+**What's Included:**
+- Kertas bekas (10 lembar)
+- Lem putih (50 ml)
+- Lidi atau tusuk sate (1 batang)
+- Tali rami (1 meter)
+
+**Step-by-Step Process:**
+1. Potong kertas menjadi segitiga panjang
+2. Gulung dengan lidi, lem bagian ujungnya
+3. Biarkan kering dan oles pelindung jika perlu
+4. Rangkai menjadi gelang atau kalung
+
+**Tags:** paper, recycle, beads
+</details>
+<br>
 
 ## 🛠️ **Tech Stack**
 
@@ -70,7 +254,6 @@
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
 </div>
-
 <br>
 
 ## 🚀 **Quick Start Guide**
@@ -81,6 +264,26 @@ git clone https://github.com/DHard4114/DashCraft.git
 cd DashCraft
 ```
 
+### 🗄️ **Database Setup**
+
+Before running the application, you'll need to seed the database with categories and products:
+
+```bash
+# Navigate to backend directory
+cd BE
+
+# Install dependencies
+npm install
+
+# Seed categories first
+node scripts/seedCategories.js
+
+# Then seed items
+node scripts/seedItems.js
+
+# Start the server
+npm run start
+```
 
 ### 🔧 **Backend Setup**
 ```bash
@@ -211,7 +414,20 @@ FE/
 ```
 
 </details>
-</br>
+<br>
+
+## 💰 **Pricing & Difficulty Guide**
+
+<div align="center">
+
+| Price Range | Difficulty | Time Required | Perfect For |
+|-------------|------------|---------------|-------------|
+| **Rp 30,000 - 50,000** | 🟢 Mudah | 1-2 jam | Beginners, Kids, Quick Projects |
+| **Rp 50,000 - 85,000** | 🟡 Sedang | 1.5-2 jam | Intermediate, Weekend Projects |
+| **Rp 85,000 - 120,000** | 🔴 Sulit | 3-4 jam | Advanced, Detailed Crafts |
+
+</div>
+<br>
 
 ## ✨ **Key Features**
 
@@ -225,6 +441,8 @@ FE/
 | 📱 **Responsive Design** | Works on all devices | ✅ Active |
 | 🔍 **Product Search** | Find your perfect DIY kit | ✅ Active |
 | ⭐ **Reviews & Ratings** | Customer feedback system | ✅ Active |
+| 🌱 **Sustainability Focus** | Eco-friendly and upcycling options | ✅ Active |
+| 📚 **Detailed Tutorials** | Step-by-step instructions included | ✅ Active |
 
 </div>
 <br>
@@ -274,16 +492,14 @@ FE/
 
 </div>
 
-<br>
-
 <div align="center">
+<br>
 
 ### 🐛 **Found a Bug?**
 Please open an issue with detailed information about the bug and steps to reproduce it.
 
 ### 💡 **Have an Idea?**
 We'd love to hear your suggestions! Open an issue to discuss new features.
-
 
 ### 🌟 **Show Your Support**
 
