@@ -141,64 +141,120 @@ npm run dev
 
 ```
 FE/
-├── node_modules/
-├── public/
-├── src/
-│   ├── assets/
-│   ├── auth/
-│   │   ├── AuthModal.jsx
-│   │   ├── Login.jsx
-│   │   └── Register.jsx
-│   ├── components/
-│   │   ├── BrandValueSlider.jsx
-│   │   ├── DotIndicators.jsx
-│   │   ├── Footer.jsx
-│   │   ├── ImageGallery.jsx
-│   │   ├── Layout.jsx
-│   │   ├── NavBar.jsx
-│   │   ├── PaymentModal.jsx
-│   │   ├── productCard.jsx
-│   │   ├── ProductDetailModal.jsx
-│   │   ├── ProtectedRoute.jsx
-│   │   └── scrollButton.jsx
-│   ├── contexts/
-│   │   └── AuthContext.jsx
-│   ├── hooks/
-│   │   └── useCarousel.js
-│   ├── pages/
-│   │   ├── About.jsx
-│   │   ├── Advantages.jsx
-│   │   ├── BuyOnline.jsx
-│   │   ├── CartPage.jsx
-│   │   ├── Contact.jsx
-│   │   ├── Home.jsx
-│   │   ├── paymentMethod.jsx
-│   │   └── ProductGrid.jsx
-│   ├── products/
-│   │   └── material/
-│   │       └── Material.jsx
-│   ├── App.css
-│   ├── App.jsx
-│   ├── index.css
-│   └── main.jsx
-├── .env
-├── .gitignore
-├── eslint.config.js
-├── index.html
-├── package-lock.json
-├── package.json
-├── postcss.config.js
-├── README.md
-├── tailwind.config.js
-├── vercel.json
-└── vite.config.js
-
+├── 🎨 src/
+│   ├── 🔐 auth/
+│   │   ├── AuthModal.jsx       # Authentication modal
+│   │   ├── Login.jsx           # Login component
+│   │   └── Register.jsx        # Registration component
+│   ├── 🧩 components/
+│   │   ├── NavBar.jsx          # Navigation bar
+│   │   ├── Footer.jsx          # Footer component
+│   │   ├── ProductCard.jsx     # Product display card
+│   │   ├── Layout.jsx          # Main layout wrapper
+│   │   └── ...more components
+│   ├── 📄 pages/
+│   │   ├── Home.jsx            # Homepage
+│   │   ├── BuyOnline.jsx       # Shopping page
+│   │   ├── CartPage.jsx        # Shopping cart
+│   │   └── Contact.jsx         # Contact page
+│   ├── 🎯 contexts/
+│   │   └── AuthContext.jsx     # Authentication context
+│   ├── 🪝 hooks/
+│   │   └── useCarousel.js      # Custom carousel hook
+│   └── 📱 assets/              # Static assets
+└── 📦 package.json             # Dependencies
 ```
 
-## **Authors ✍️** 
-| K2 Group 13 | NPM |
-| :----------------: | :------------: |
-| [**Daffa Hardhan**](https://github.com/DHard4114)| 2306161763 |
-| [**Muhammad Rafli**](https://github.com/MRafli127)| 2306250730 |
-| [**Ekananda Zhafif Dean**](https://github.com/RubenKristanto)| 2306264420 |
+</details>
+</br>
 
+## ✨ **Key Features**
+
+<div align="center">
+
+| Feature | Description | Status |
+|---------|-------------|--------|
+| 🛒 **Shopping Cart** | Add, remove, and manage DIY kits | ✅ Active |
+| 👤 **User Authentication** | Secure login and registration | ✅ Active |
+| 💳 **Payment Integration** | Multiple payment methods | ✅ Active |
+| 📱 **Responsive Design** | Works on all devices | ✅ Active |
+| 🔍 **Product Search** | Find your perfect DIY kit | ✅ Active |
+| ⭐ **Reviews & Ratings** | Customer feedback system | ✅ Active |
+
+</div>
+<br>
+
+## 👥 **Meet Our Creative Team**
+<div align="center">
+
+### 🎓 **K2 Group 13** - *Crafting Digital Excellence*
+<table>
+<tr>
+<td align="center" width="280px" style="padding: 40px 25px; border: 1px solid #e1e5e9; border-radius: 12px; vertical-align: middle;">
+<br><br>
+<img src="https://github.com/DHard4114.png?size=100" width="100px" height="100px" alt="Daffa Hardhan" style="border-radius: 50%; border: 3px solid #f39c12; object-fit: cover;"/><br>
+<h3>✨ Daffa Hardhan</h3>
+<a href="https://github.com/DHard4114">
+<img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
+</a><br><br>
+<code>📚 NPM: 2306161763</code>
+<br><br>
+</td>
+<td align="center" width="280px" style="padding: 40px 25px; border: 1px solid #e1e5e9; border-radius: 12px; vertical-align: middle;">
+<br><br>
+<img src="https://github.com/MRafli127.png?size=100" width="100px" height="100px" alt="Muhammad Rafli" style="border-radius: 50%; border: 3px solid #3498db; object-fit: cover;"/><br>
+<h3>⭐ Muhammad Rafli</h3>
+<a href="https://github.com/MRafli127">
+<img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
+</a><br><br>
+<code>📚 NPM: 2306250730</code>
+<br><br>
+</td>
+<td align="center" width="280px" style="padding: 40px 25px; border: 1px solid #e1e5e9; border-radius: 12px; vertical-align: middle;">
+<br><br>
+<img src="https://github.com/Ekazadex.png?size=100" width="100px" height="100px" alt="Ekananda Zhafif Dean" style="border-radius: 50%; border: 3px solid #27ae60; object-fit: cover;"/><br>
+<h3>🌟 Ekananda Zhafif D</h3>
+<a href="https://github.com/Ekazadex">
+<img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
+</a><br><br>
+<code>📚 NPM: 2306264420</code>
+<br><br>
+</td>
+</tr>
+</table>
+
+<br>
+
+*"Passionate developers united by the vision of empowering creativity through technology"*
+
+</div>
+
+<br>
+
+<div align="center">
+
+### 🐛 **Found a Bug?**
+Please open an issue with detailed information about the bug and steps to reproduce it.
+
+### 💡 **Have an Idea?**
+We'd love to hear your suggestions! Open an issue to discuss new features.
+
+
+### 🌟 **Show Your Support**
+
+If you found this project helpful, please consider giving it a star! ⭐
+
+[![GitHub stars](https://img.shields.io/github/stars/DHard4114/DashCraft?style=for-the-badge&logo=github)](https://github.com/DHard4114/DashCraft/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/DHard4114/DashCraft?style=for-the-badge&logo=github)](https://github.com/DHard4114/DashCraft/issues)
+
+<br>
+<br>
+
+**Made by K2 Group 13**
+
+*Empowering creativity, one DIY kit at a time* ✨
+
+### 🔗 **Quick Links**
+[🏠 Homepage](https://dashcraft-demo.vercel.app) • [📖 Documentation](https://github.com/DHard4114/DashCraft/wiki) • [🐛 Report Bug](https://github.com/DHard4114/DashCraft/issues) • [💡 Request Feature](https://github.com/DHard4114/DashCraft/issues)
+
+</div>
