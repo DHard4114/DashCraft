@@ -168,9 +168,6 @@ FE/
 <div align="center">
 
 ### 🎓 **K2 Group 13** - *Crafting Digital Excellence*
-
-<br>
-
 <table>
 <tr>
 <td align="center" width="280px" style="padding: 40px 25px; border: 1px solid #e1e5e9; border-radius: 12px; vertical-align: middle;">
