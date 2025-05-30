@@ -29,6 +29,26 @@
 </div>
 </br>
 
+## 🛍️ **Our DIY Collection**
+
+<div align="center">
+  
+<table>
+<tr>
+<td align="center">🧼<br><b>Organic Soap Kit</b><br>Essential oils & natural ingredients</td>
+<td align="center">🕯️<br><b>Aromatherapy Candles</b><br>Natural wax & premium scents</td>
+<td align="center">👜<br><b>Fashion Accessories</b><br>Bags, jewelry & more</td>
+</tr>
+<tr>
+<td align="center">♻️<br><b>Upcycling Projects</b><br>Turn waste into wonder</td>
+<td align="center">🌿<br><b>Mini Garden Kits</b><br>Indoor plants & herbs</td>
+<td align="center">🔨<br><b>Woodworking</b><br>Simple home decor projects</td>
+</tr>
+</table>
+
+</div>
+</br>
+
 ## 🛠️ **Tech Stack**
 
 <div align="center">
