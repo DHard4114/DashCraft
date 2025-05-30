@@ -10,7 +10,6 @@
 
 </div>
 
-<br>
 
 ## 🌟 **About DashCraft**
 
