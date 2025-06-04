@@ -342,7 +342,7 @@ BE/
 ```bash
 cd FE
 npm install
-npm install lucide-react
+npm install axios lucide-react react react-dom react-icons react-router-dom
 npm run dev
 ```
 
