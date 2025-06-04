@@ -172,7 +172,7 @@ const TutorialDetail = () => {
           <h2 className="font-lato text-2xl font-medium text-gray-900 mb-2">Tutorial Not Found</h2>
           <p className="font-lato text-gray-600 mb-6">{error}</p>
           <button
-            onClick={() => navigate('/our-craftsmanships')}
+            onClick={() => navigate('/craftsmanships')}
             className="px-6 py-3 bg-black text-white rounded-none hover:bg-gray-800 transition-colors font-lato flex items-center gap-2 mx-auto"
           >
             <ArrowLeft size={20} />
@@ -190,7 +190,7 @@ const TutorialDetail = () => {
         {/* Back Navigation */}
         <div className="mb-6">
           <button
-            onClick={() => navigate('/our-craftsmanships')}
+            onClick={() => navigate('/craftsmanships')}
             className="flex items-center gap-2 text-gray-600 hover:text-black transition-colors font-lato"
           >
             <ArrowLeft size={20} />
