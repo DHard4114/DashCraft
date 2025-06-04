@@ -3,19 +3,23 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { connectDB } = require('./config/db');
 
-const userRoutes = require('./routes/userRoute');
-const itemRoutes = require('./routes/itemRoute');
-const categoryRoutes = require('./routes/categoryRoute');
-const cartRoutes = require('./routes/cartRoutes');
-const orderRoutes = require('./routes/orderRoutes');
-const reviewRoutes = require('./routes/reviewRoutes');
 
-const errorHandler = require('./middleware/errorMiddleware');
-const corsMiddleware = require('./middleware/corsMiddleware');
+const userRoutes = require('./routes/userRoute.js');
+const itemRoutes = require('./routes/itemRoute.js');
+const categoryRoutes = require('./routes/categoryRoute.js');
+const cartRoutes = require('./routes/cartRoute.js');
+const orderRoutes = require('./routes/orderRoute.js');
+const reviewRoutes = require('./routes/reviewRoute.js');
 
-const { cloudinary } = require('./utils/cloudinary');
 
-// Test Cloudinary connection
+const errorHandler = require('./middleware/errorMiddleware.js');
+const corsMiddleware = require('./middleware/corsMiddleware.js');
+
+
+const { cloudinary } = require('./utils/cloudinary.js');
+
+
+
 cloudinary.api.ping((error, result) => {
     if (error) {
         console.error('❌ Cloudinary connection failed:', error);

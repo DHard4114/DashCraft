@@ -1,6 +1,6 @@
 const express = require('express');
-const CartRepository = require('../repositories/cartRepository');
-const { authMiddleware } = require('../middleware/authMiddleware');
+const CartRepository = require('../repositories/cartRepository.js');
+const { authMiddleware } = require('../middleware/authMiddleware.js');
 
 const router = express.Router();
 
