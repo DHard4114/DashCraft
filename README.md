@@ -275,14 +275,10 @@ cd BE
 # Install dependencies
 npm install
 
-# Seed categories first
-node scripts/seedCategories.js
+# 
+docker build -t dashcraft-be .
+docker run --env-file .env -p 3000:3000 dashcraft-be
 
-# Then seed items
-node scripts/seedItems.js
-
-# Start the server
-npm run start
 ```
 
 ### 🔧 **Backend Setup**
