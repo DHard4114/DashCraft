@@ -7,6 +7,7 @@ const Register = () => {
   const navigate = useNavigate();
   const { register, isAuthenticated, loading } = useAuth();
   
+  
   const [formData, setFormData] = useState({
     username: '',
     email: '',

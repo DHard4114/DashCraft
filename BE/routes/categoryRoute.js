@@ -11,6 +11,7 @@ router.get('/:slug', CategoryRepository.getCategoryBySlug);
 router.get('/:slug/materials', CategoryRepository.getCategoryMaterials);
 router.get('/id/:id', CategoryRepository.getCategoryById);
 
+
 // Protected routes (require authentication)
 router.use(authMiddleware);
 

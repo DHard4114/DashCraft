@@ -36,6 +36,7 @@ const BrandValueSlider = () => {
         setCurrentSlide(index);
     };
     
+    
     return (
         <div className="w-full h-full bg-[#ffffff] flex flex-col justify-between relative overflow-hidden">
             <div className="absolute top-1/2 right-0 w-40 h-40 bg-[#dad3c7] opacity-30 rounded-full translate-x-1/2 -translate-y-1/2"></div>

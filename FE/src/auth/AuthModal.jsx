@@ -18,6 +18,7 @@ const AuthModal = ({ isOpen, onClose, initialMode = 'login' }) => {
   
   const { login } = useAuth();
 
+  
   // Reset form when modal opens/closes or mode changes
   useEffect(() => {
     setFormData({
