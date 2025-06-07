@@ -257,6 +257,7 @@ Create unique jewelry pieces from recycled paper, combining sustainability with 
 <br>
 
 ## 🚀 **Quick Start Guide**
+For this Dashcraft project there are two files, namely Backend and Frontend. To run it all in the local backend and frontend respectively
 
 ### 📥 **Clone the Repository**
 ```bash
@@ -287,6 +288,15 @@ cd BE
 npm install
 npm run start
 ```
+
+</div>
+<div align="center">
+  
+![Run Backend](https://hackmd.io/_uploads/Hk1e1WZQlg.png)
+
+</div>
+
+
 
 <details>
 <summary>📁 <b>View Backend Structure</b></summary>
@@ -345,6 +355,16 @@ npm install
 npm install axios lucide-react react react-dom react-icons react-router-dom
 npm run dev
 ```
+
+</div>
+<div align="center">
+  
+![Run Frontend](https://hackmd.io/_uploads/Sk-NkbWQxx.png)
+
+</div>
+
+
+
 
 <details>
 <summary>📁 <b>View Frontend Structure</b></summary>
