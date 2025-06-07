@@ -532,6 +532,6 @@ If you found this project helpful, please consider giving it a star! ⭐
 *Empowering creativity, one DIY kit at a time* ✨
 
 ### 🔗 **Quick Links**
-[🏠 Homepage](https://dashcraft-demo.vercel.app) • [📖 Documentation](https://github.com/DHard4114/DashCraft/wiki) • [🐛 Report Bug](https://github.com/DHard4114/DashCraft/issues) • [💡 Request Feature](https://github.com/DHard4114/DashCraft/issues)
+[🏠 Homepage](https://dash-craft.vercel.app/) • [🐛 Report Bug](https://github.com/DHard4114/DashCraft/issues) • [💡 Request Feature](https://github.com/DHard4114/DashCraft/issues)
 
 </div>
